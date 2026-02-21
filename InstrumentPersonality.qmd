@@ -14,7 +14,7 @@ Because the task of this chapter is to operate a selection and a classification 
 
 Short-term, more timely and current features of regime (trending-ranging) and volatility must constitute the basis for the tactical choice of the instruments and strategies to trade, from time to time, and will be the subject of the next chapter.
 
-But the intelligent application of all our arsenal of volatility analysis allows us to make a first choice about instruments. Those deeper IV metrics belong in the **pre-selection of instruments**, not just strategy selection. Here\'s the enhanced framework.
+But the intelligent application of all our arsenal of volatility analysis allows us to make a first choice about instruments. Those deeper IV metrics belong in the **pre-selection of instruments**, not just strategy selection. Here's the enhanced framework.
 
 **Step 1: the general behavior of instruments.**
 
@@ -94,5 +94,3 @@ p_main <- ggplot(df_sorted_low, aes(y = Instrument)) +
 p_main
 
 ```
-
-
