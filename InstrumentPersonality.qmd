@@ -94,3 +94,12 @@ p_main <- ggplot(df_sorted_low, aes(y = Instrument)) +
 p_main
 
 ```
+
+This chart represents the 52-week range of implied volatility of the VIX index (representative of a market average volatility) and the range of IV for assets belonging to different classes.
+
+We see interesting things:
+
+-   Some instruments have volatiltiy ranges much tighter, and some much wider than the VIX (... than the average)
+-   Some instruments have ranges of volatility consistently shifted to the left of the VIX volatilty, i.e. they have quite constantly lower volatility than the average of the market. FXE, TLT, KO, PEP, WM, PFE are among those. Meaningfully they represent either classes of assets different from stocks (TLT: bonds yields, FXE EURUSD exchange rate). Among the shares we find in this category consumer goods, GDO, large anti-cyclic conglomerated (big pharma like Pfizer).
+-   On the opposite: some assets shows volatility consistenly higher than the market average (VIX): LCID, RIVN, PLTR. They are typically the assets of new technologies or risky businesses.
+-   There are some assets which show a volatility range quite similar to VIX, i.e. in line with market volatility.
