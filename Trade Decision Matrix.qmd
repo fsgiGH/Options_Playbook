@@ -1,0 +1,36 @@
+# The trade decision matrix
+
+Before starting any trade we need to analyze the market and make our decisions concerning
+
+-   Instruments to trade
+
+-   Market conditions
+
+-   Correct option strategy to apply.
+
+## The instruments
+
+## Market conditions
+
+The most important factors to analyze when the market is decided are **market regime** (trend or range) and **volatility.**
+
+1.  **Trend State**: Is it in a strong trend or choppy/range-bound? (Look at 20-50 day moving average slope and ADX).
+
+2.  **Realized Volatility (RV)**: High or low relative to its own history?
+
+3.  **Implied Volatility (IV) Percentile**: Is IV cheap (low percentile) or expensive (high percentile)?
+
+4.  **Correlation Check**: How does it move relative to others? (This is for portfolio construction).
+
+**Apply the Decision Matrix**
+
+Based on our discussion, here is the updated, actionable decision matrix. We will use it as our filter.
+
+| Market State | Ideal strategy | Rationale & Playbook link |
+|----|----|----|
+| IV Low (\<= 40%) + Price range-bound |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |

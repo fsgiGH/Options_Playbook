@@ -1,0 +1,207 @@
+# Practical Theory
+
+With this title I mean all the theoretical background which is directly useful for profitable trading, that is avoiding long digressions and demonstration.
+
+## A simple greeks equation
+
+We know the basic meaning of the greeks functions (from the Black-Scholes model):
+
+-   Delta (Δ) measures the variation of the option price as a function of the movement of the price of the underlying
+
+-   Theta (Θ) measures the variation of the option price due to the time to maturity becoming lower and lower down to expiration. It is the "time value" of an option
+
+-   Vega (V) -- in reality there is no "vega" letter in the Greek alphabet! -- measures the variation of the option price due to the variation of the implied volatility of the option (the relationship between V and σ^2^ (the standard deviation of the price curve) not being straight, but proportional (very complex calculation, but involving the probability density function, in which σ and σ^2^ are involved. Thus: higher price curve standard deviation corresponds to high vega.
+
+-   Gamma (Γ) measures the variation of delta as a function of the variation of the price of the underlying. Thus, in a payoff curve, Δ is the first, and Γ is the second derivative of the P&L curve as a function of price of the underlying.
+
+This is quite clear. What is not always clear is that there is a **mathematical relationship** between gamma and theta. In the Black-Scholes model, for a single option:
+
+$$\Theta \approx - \frac{1}{2}\sigma^{2}S^{2}\Gamma$$
+
+This means: Theta (time decay) is proportional to Gamma times the square of price times volatility. And in turn this also means that Theta and Gamma are anticorrelated: when Gamma is high, Theta is low (negative), and vice-versa. By the way, even though the mathematical demonstration and formulas are much more comples, Theta is also inversely proportional to vega.
+
+## Ideology or opportunity?
+
+The discussion with AI instruments started by comparing the YouTube "income strategies" with another kind of trading philosophy: **balanced convexity.**
+
+1\. **Long Volatility / Positive Convexity Structures**
+
+These *benefit* from crashes instead of being destroyed by them. Examples:
+
+-   Long straddles/strangles (with timing/IV filters)
+
+-   Backspreads (call or put)
+
+-   ratio diagonals (long more thime than you sell)
+
+-   Calendar spreads with long-vol bias
+
+-   Long gamma scalping (advanced but robust)
+
+These have:
+
+-   Limited risk
+
+-   Unlimited or large upside
+
+-   No hidden tail exposure
+
+They don't win often, but when they win, they win *big*.
+
+Problem of these strategies is *time decay bleeding*
+
+2\. **Negative Convexity Strategies**
+
+Examples
+
+-   The wheel
+
+-   Iron Condors
+
+-   Cash-covered short option
+
+These have:
+
+-   high probability of profits
+
+-   low profits when they are successful
+
+-   Tail exposure
+
+-   Unlimited or large downside
+
+They win often, but when they lose, lose *big*
+
+3\. **Balanced convexity strategies**
+
+Balanced convexity means structuring your options exposure so that:
+
+-   You don't bleed slowly like pure long‑volatility traders.
+
+-   You don't blow up like short‑volatility traders.
+
+-   You maintain a controlled, limited downside.
+
+-   You keep some convexity so that large moves help you instead of destroying you.
+
+-   Your P/L curve is curved but not extreme --- neither flat nor explosive.
+
+Think of it as a risk‑controlled middle path.
+
+The portfolio should be:
+
+-   Suitable for a small account (initially \< €10,000)
+
+-   Low-to-medium maintenance (ideally: once a day, even at market close)
+
+-   Offer a decent CAGR, well above a standard benchmark like S&P buy and hold.
+
+In addition it should offer good differentiation
+
+-   Across instruments
+
+-   Across strategies, so that it should be possible to pick the preferred strategy according to the mutable market states (trending vs. ranging, high volatilty vs. low volatility).
+
+Balanced convexity lets you:
+
+-   Earn during normal conditions
+
+-   Survive during abnormal conditions
+
+-   Profit during extreme conditions
+
+This is the opposite of the YouTube "income" strategies that collapse during volatility spikes.
+
+In summary, convexity is the exploitation of gamma and vega, paying as a cost theta. Income strategies are instead profiting of theta decay, but are exposed to vega and gamma risks. Balanced convexity should try to mitigate the theta-decay of long gamma and vega positions, but the engine of profitability is gamma.
+
+------------------------------------------------------------------------
+
+After a long discussion with DS, in which we finally got "practical" by studying the behavior of a "balanced convexity" double diagonal and an "income" double diagonal, we concluded that the efforts for applying one *ideology* to trading (always use balanced convexity and avoid income strategies), we decided that this approach is faulty.
+
+The right thing to do in trading is to apply the correct strategy and view depending by context.
+
+With rang-bound, low volatility instruments (like perhaps TLT), balanced convexity is a waste of money. It is like buying an insurance against earthquakes in a region without any seismic activity.
+
+📊 The general rule:
+
+| Kind of instrument | Suitable strategy | Why |
+|:--------------------|:----------------------------|:---------------------|
+| Range-bound, slow-moving (TLT) | Income strategies (short strangle, iron condor, credit spread) | Harvest theta, exploiting the lack of movement. |
+| Earnings, events, volatile (MARA, biotech) | Balanced convexity (double diagonal, straddle) | You buy protection for the incoming explosion |
+| Trending indexes | Directional (call/put diagonal) | Follow the trend, sell against |
+
+As the conclusion of this long discussion, I would make some comments:
+
+The whole strategy, finally, boils down to these two elements:
+
+Correct analysis of the market: find *objective* measures for assessing the market without being trapped either in discretion and future-guessing (delta neutrality most of the time?) or in analysis paralysis (too many parameters, complexity in creating the synthesis, waste of time)
+
+Correct choice of the option strategy (tendentially the right spread) for profiting with the best instrument the assessed situation
+
+The emphasis in the original philosophy (balanced convexity) is the first word: balanced.
+
+There might be situations where an "income" strategy is more appropriate, i.e. the profit driver will be theta. In this case we need to balance in order to protect from gamma (eventually vega) risk.
+
+There are other situations where the convexity is more appropriate (gamma and vega are the profit drivers) and we need to find ways of protecting from theta risk (time decay)
+
+The success and the profitability of option trading will be granted by the systematic application of a well-planned, diligently implemented, and patiently followed trading plan where knowing in advance what we will do, keeps us safe against psychology and panic.
+
+## Volatility
+
+Volatility is one of the most important dimensions to be considered when analyzing the market and trade opportunities.
+
+There have been a lot of teachings by DS about the IV measures. Here some values and how to look for them in ToS:
+
+| Measure | Formula | Sensitivity | Better for... |
+|:---------------:|:---------------:|:---------------:|:-------------------:|
+| IV Rank | (current IV -- min IV) / (max IV -- min IV) | Extreme peaks | Identify absolute extremes |
+| IV Percentile | \% days with IV \< today | Distribution | Really understand whether today it is "high" or "low" |
+
+: Volatility metrics {.striped .hover}
+
+How to find IV percentile? In ToS 🡪 Trade 🡪Today's option statistics. It is simply there, as well as max and min IV in the last year.
+
+**Historical vs. Implied Volatility (IV/HV ratio)**
+
+| IV/HV Ratio | Meaning | Action |
+|:----------------:|:------------------:|:--------------------------------:|
+| IV \> HV | Options are more expensive relative to recent past | Prefer selling |
+| IV \< HV | Options are cheap | Prefer buying |
+| IV ≈ HV | "Normal" market | Neutral. Edge must come from direction or timing, not from volatility mispricing alone |
+
+**The very nice thing** is that both 52 week IV Percentile and 52 week IV Rank can be very easily shown in **TWS**, in their numerical value, in any MONITOR or Watchlist/scanner just by including them as a data column. This is a big plus!
+
+**Volatility Term Structure**
+
+This is the implied volatility across different expiration dates. It can be read from TWS or ToS table collapsing the different expiration option chains.
+
+**The shape of the IV curve through expirations** is a very powerful indicator:
+
+| Shape                       | Name    | Meaning                           |
+|:----------------------------|:--------|:----------------------------------|
+| **Rising (contango)**       | Normal  | No imminent event                 |
+| **Falling (backwardation)** | Inverse | Waited-for event (earnings, FOMC) |
+| **Localized maximum**       | Spike   | Specific event at that expiration |
+
+**Skew (Asimmetry Put/Call)**
+
+Skew measures the difference of IV between OTM puts and calls.
+
+| Skew            | What it indicates                                      |
+|:----------------|:-------------------------------------------------------|
+| **Put \> Call** | Fear of drop (typical of indexes)                      |
+| **Call \> Put** | Bullish euphoria (typical of biotechs before earnings) |
+| **Flat**        | No particular fear.                                    |
+
+**Mean Reversion Speed (Advanced, and not easily found on platforms)**
+
+The speed at which IV comes back to its average after a peak is different for eachi instrument:
+
+| Instrument   | Half-life (days) | Behavior               |
+|:-------------|:-----------------|:-----------------------|
+| Inexes       | \~70             | Slow reversion to mean |
+| Single stock | 10-30            | Fast                   |
+| Cripto       | 5-15             | Immediate              |
+
+**\
+**

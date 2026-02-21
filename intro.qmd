@@ -1,0 +1,33 @@
+# Introduction
+
+After quite a lot of less or more useless theory in the dialogues with AI tools, it is now finally the time for starting being operative.
+
+I will eventually keep here a space, on the top, for introducing the possibly useful theory, but the important thing now is to set up a systematic trading plan on options.
+
+## Tools
+
+I have learned how difficult it is to develop a good software for options analysis. The overall lesson is that I can eventually rely o AI tools for helping in specific construction of specialized tools within my platform, but I need to keep full control of the process and use my human brain for making the design and keeping control.
+
+### My own software
+
+The idea and aim of this software construction is the following:
+
+1.  I need an alternative to both ToS and TWS. ToS is not free to use unless I adopt the trick of continuously renewing my guess subscription, every time with a new email address. In addition, ToS is not perfect: charts are incomplete, difficult to manage and it is not possible to compare strategies for making good choices. TWS on the other hand is a fuzzy environment where finding what you may need is almost impossible.
+
+2.  The tool, in its logic, can be constructed entirely in R, which was confirmed to be the best number crunching machine around, including a series of excellent libraries, starting from RQuantLib.
+
+3.  I need to remake the core logic of the library, starting from constructing meaningful and not just toy instrument classes (S3).
+
+4.  Then I need to involve AI again to build up a bridge to IBKR.
+
+5.  Once this is in place, I can start laying out a GUI with shiny, before eventually deciding to go for a tauri-Javascript integration, which would require again the support of AI.
+
+6.  All this should proceed as a **side hobby-like** activity while trading is established and becomes so smooth that requires to me few time a day.
+
+### In the absence
+
+In the absence of my own perfect options software, I will use what I have:
+
+1.  For analysis, mainly the guest account on ToS. If it will be necessary to renew it from time to time I will do
+
+2.  For the real trading TWS, which offers the good IBKR commission structure and probably good tools for filling orders. Perhaps with the time I can also learn some tricks for using efficiently some of the present tools.

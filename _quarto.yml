@@ -1,0 +1,27 @@
+project:
+  type: book
+
+book:
+  title: "Playbook"
+  author: "Fabio Spreafico"
+  date: "19/02/2026"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - PracticalTheory.qmd
+    - InstrumentPersonality.qmd
+    - summary.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+

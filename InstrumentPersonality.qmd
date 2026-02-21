@@ -1,0 +1,98 @@
+# Instruments Personality
+
+After the theory, it is now time to get into practice. We have seen that the main idea behind this method is to adapt trading practices to the real nature of the market. And the first feature of the market that should be considered is the instruments themselves, with all their differences, despite the common nature of being financial assets.
+
+The main features of the instruments that are worth considering are their propension for directional moves or mean reversion, and their volatility.
+
+Each instrument can vary such features along its lifespan, at a certain extent, but retains a particular "personality" which is constant along time according to the nature of the economic nature of the object that it prices. A financial instrument pricing state bonds will behave intrinsically in a different manner than private company ownership and again differently in the case of a commodity or an exchange rate. The economic forces governing these classes of assets are fundamentally different, though there might be interactions, surely complex, of one with the other.
+
+Between trendiness and volatility, apparently the former is more subject to general economic cycles or shocks, while preserving a general mean-reverting or persisten movement characteristic. Volatility, instead, seems to be something that, on a macro level, is more constant and more connected with the nature of the instrument itself.
+
+This is where the consistent space that we have dedicated to understanding the many facets and measures of volatility comes into play.
+
+Because the task of this chapter is to operate a selection and a classification of the instruments that I want to trade, and how.
+
+Short-term, more timely and current features of regime (trending-ranging) and volatility must constitute the basis for the tactical choice of the instruments and strategies to trade, from time to time, and will be the subject of the next chapter.
+
+But the intelligent application of all our arsenal of volatility analysis allows us to make a first choice about instruments. Those deeper IV metrics belong in the **pre-selection of instruments**, not just strategy selection. Here\'s the enhanced framework.
+
+**Step 1: the general behavior of instruments.**
+
+Though it was clear that the VIX, the index which measures the implied volatility of the assets belonging to the S&P500 index, cannot be applied 1:1 for filtering or judging instruments to trade, it surely traces a first big distinction:
+
+a.  There are instruments that constrantly show an IV level smaller than the VIX (low-volatiltiy instruments)
+
+b.  There are instruments that consistently show IV values at or above the VIX level.
+
+Though the VIX itself is subject to significant variations, in a quite wide range, it may constitute sort of dynamic scale of measurement for determining the nature of other instruments, since it is exactly a representative sample of the whole market volatility.
+
+It is quite easy to spot instruments that most of the time represent the set of **low volatility:**
+
+```{r chart of volatility range, echo=FALSE, warning=FALSE, message=FALSE}
+library(dplyr)
+library(ggplot2)
+
+# ---------------------------------------------------------
+# 1. Data frame with your exact close prices
+# ---------------------------------------------------------
+
+df <- tribble(
+  ~Instrument, ~IV_low, ~IV_high, ~Notes, ~Close,
+  "VIX", 13.38, 60.13, "Vol Index", 19.19,
+  "FXE", 4.4, 15.2, "Currency ETF", 108.78,
+  "TLT", 8.9, 25.1, "Treasuries", 89.41,
+  "KO", 12, 28, "Consumer Staples", 79.80,
+  "PEP", 13, 31, "Consumer Staples", 164.94,
+  "WMT", 14, 33, "Retail", 123.00,
+  "PFE", 17, 38, "Pharma", 26.67,
+  "GLD", 13.8, 43.5, "Gold", 468.00,
+  "SPY", 11.0, 43.2, "S&P 500 ETF", 689.42,
+  "IWM", 16.6, 49.2, "Small Caps", 264.76,
+  "XLF", 12.8, 46.6, "Financials", 52.52,
+  "QQQ", 14.5, 48.4, "Nasdaq 100", 608.68,
+  "XLK", 16.8, 51.3, "Tech ETF", 141.23,
+  "AMD", 28, 65, "Semiconductors", 199.98,
+  "INTC", 25, 63, "Semiconductors", 44.06,
+  "F", 30, 70, "Auto", 14.00,
+  "MU", 32, 75, "Memory Chips", 427.58,
+  "USO", 24.5, 67.7, "Crude Oil ETF", 80.87,
+  "PLTR", 40, 95, "Software", 135.15,
+  "RIVN", 45, 105, "EV", 15.23,
+  "LCID", 50, 120, "EV", 9.59,
+  "UNG", 44.3, 102.1, "Natural Gas ETF", 12.00,
+  "VXX", 43.7, 169.5, "Vol ETN", 28.14
+)
+
+# ---------------------------------------------------------
+# 2. Sorting by IV_low (VIX always on top)
+# ---------------------------------------------------------
+
+sorted_levels_low <- df %>%
+  filter(Instrument != "VIX") %>%
+  arrange(IV_low) %>%
+  pull(Instrument)
+
+sorted_levels_low <- c("VIX", sorted_levels_low)
+
+df_sorted_low <- df %>%
+  mutate(Instrument = factor(Instrument, levels = sorted_levels_low))
+
+# ---------------------------------------------------------
+# 3. Main bar chart (no dots, reversed Y-axis)
+# ---------------------------------------------------------
+
+p_main <- ggplot(df_sorted_low, aes(y = Instrument)) +
+  geom_segment(aes(x = IV_low, xend = IV_high, yend = Instrument),
+               linewidth = 3, color = "steelblue") +
+  scale_y_discrete(limits = rev) +
+  labs(
+    title = "52-Week Implied Volatility Ranges (Sorted by IV Low)",
+    x = "Implied Volatility (%)",
+    y = ""
+  ) +
+  theme_minimal(base_size = 12) 
+p_main
+
+```
+
+

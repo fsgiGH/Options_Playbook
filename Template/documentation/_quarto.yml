@@ -1,0 +1,47 @@
+project:
+  type: website
+
+website:
+  title: "TeXnative"
+  repo-url: https://github.com/wearetechnative/TeXnative
+  repo-actions: [issue]
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: getting-started.qmd
+        text: Getting Started
+    right:
+      - icon: github
+        href: https://github.com/wearetechnative/TeXnative
+  sidebar:
+
+    background: "#D9E3E4"
+    logo: "https://raw.githubusercontent.com/wearetechnative/TeXnative/refs/heads/main/media/TeXnative-logo.svg"
+    pinned: true
+    align: center
+
+    style: "docked"
+    search: true
+    contents:
+      - section: "Getting Started"
+        contents:
+          - getting-started.qmd
+      - section: "Features"
+        contents:
+          - cover-page.qmd
+          - letterhead.qmd
+          - table-formatting.qmd
+          - data-classification-label.qmd
+      - section: "Reference"
+        contents:
+          - configuration.qmd
+
+format:
+  html:
+    theme:
+      light: [cosmo, theme.scss]
+      dark: [cosmo, theme-dark.scss]
+    code-copy: true
+    code-overflow: wrap
+    toc: true

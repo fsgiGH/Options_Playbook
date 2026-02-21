@@ -12,3 +12,6 @@
 # OS
 .DS_Store
 Thumbs.db
+
+# Quarto freeze cache
+.quarto/_freeze/

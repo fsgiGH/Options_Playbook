@@ -1,0 +1,32 @@
+# "A ciascuno il suo: un metodo sistematico per il trading di opzioni"
+
+## Parte I: Gli Strumenti
+
+-   Cap 1: Opzioni e Greche (solo l'essenziale)
+-   Cap 2: Volatilità e Regimi di Mercato
+-   Cap 3: La Matrice Strumento-Strategia (nuovo)
+
+## Parte II: Le Strategie
+
+-   Cap 4: Income in Range (Iron Condor, BWB)
+-   Cap 5: Convexity su Eventi (Double Diagonal, Backspread)
+-   Cap 6: Directional in Trend (Single Diagonal)
+-   Cap 7: Volatility su Eventi (Calendar)
+
+## Parte III: Il Metodo Sistematico (NUOVO)
+
+-   Cap 8: Analisi Preliminare (checklist giornaliera)
+
+-   Cap 9: Selezione della Posizione (alberi decisionali)
+
+-   Cap 10: Costruzione della Posizione (strikes, scadenze, rischio)
+
+-   Cap 11: Gestione e Aggiustamenti (regole chiare)
+
+-   Cap 12: Exit Rules (quando uscire)
+
+## Parte IV: Psicologia e Contesto
+
+-   Cap 13: Perché le Strategie Falliscono
+
+-   Cap 14: Il Vantaggio Umano (quello che le AI non hanno)

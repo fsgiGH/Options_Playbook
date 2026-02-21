@@ -1,0 +1,222 @@
+---
+title: "DiscussionDS_Matrix"
+format: html
+---
+
+Wait, I want to go much deeper that this. Let's come back to implied volatility.
+
+We classified so far TLT as low volatility, because, looking back at ToS or TWS charts we found that min iv = 8.9, max iv = 24.1 and current iv is 10.9. So the percentile is now 13%. These were TWS data.
+
+This is less or more confirmed by ToS: min iv = 0.0983, max iv = 0.2774, current iv = 0.1228.
+
+But I also observe that the region of high volatility was confined to a spike taking place between April 8-23, with a very minor spile of 0.2184 limited to the unique day of 14 November.
+
+Now I look at MARA holdings. Over the same 1yr period, max iv = 1.4788, min iv = 0.6378, for most of the year volatility was above 0.8, with frequent (though not so regularly spaced, unfortunately) up and downs. Current volatility is 1.2093, thus we are at a high percentile (68%).
+
+Another example is ORCL, which had a very nice and regular pattern of iv collapse after every earnings announcement. Max = 0.7791, right now, min 0.3111. So now we are at max percentile, close to earnings. Again, here the profile of the iw is like the one of a saw...
+
+So my question is: do we have a better or complementary indicator besides the iv percentile for raniking an instrument according to volatility? These three instruments look very different. And while we were initially planning to use TLT for a violatilty break strategy (the DD) already looking at these data about volatility could have been scared. Compared to "the market" by and large TLT is ALWAYS short of volatility, even at its max peaks.
+
+## Risposta:
+
+Questa è un'osservazione profondamente intelligente. Hai appena scoperto il limite del percentile da solo come indicatore.
+
+Il percentile ti dice dove sei nella storia, ma non ti dice com'è fatta quella storia. TLT, MARA e ORCL hanno profili di volatilità completamente diversi, e il percentile da solo non cattura questa ricchezza.
+
+📊 I Tre Profili di Volatilità Strumento Pattern IV Range tipico Picchi Natura TLT Piatto con rari spike 8-24% 1-2 all'anno "Morto" per definizione MARA Onde frequenti 60-150% Ogni 2-3 mesi "Vivo" per natura ORCL Dente di sega regolare 30-80% Ogni 3 mesi (earnings) "Event-driven" Il percentile di TLT al 13% oggi è coerente—ma anche al suo massimo storico (24%), sarebbe solo al 50-60% del range di MARA. È una tartaruga che non diventerà mai lepre.
+
+📐 Indicatori Complementari al Percentile Ecco cosa ci serve in più, dai risultati di ricerca:
+
+1.  IV Rank vs IV Percentile (li hai già, ma chiariamo) Metrica Formula Sensibilità Meglio per... IV Rank (IV attuale - min) / (max - min) Picchi estremi Identificare estremi assoluti IV Percentile % giorni con IV \< oggi Distribuzione Capire se è "davvero" alta/bassa Regola: Se c'è differenza tra Rank e Percentile, significa che ci sono stati picchi isolati. TLT ne ha avuto uno ad aprile—ecco perché.
+
+2.  Historical Volatility (HV) e Rapporto IV/HV Questo è fondamentale e non lo abbiamo usato abbastanza.
+
+Rapporto IV/HV Cosa significa Azione IV \> HV Opzioni care rispetto al passato recente Preferisci vendita IV \< HV Opzioni a buon mercato Preferisci acquisto IV ≈ HV Mercato "normale" Neutrale Su TLT oggi: IV 11.9%, HV probabilmente simile (forse leggermente inferiore). Nessun edge chiaro.
+
+Su MARA oggi: IV 121%, HV? Se HV è più basso, le opzioni sono care—ma earnings possono giustificarlo.
+
+3.  Volatility Term Structure (ToS: "Time to Expiry" nel Risk Profile) La forma della curva IV attraverso le scadenze è un indicatore potentissimo :
+
+Forma Nome Significato In salita (contango) Normale Nessun evento imminente In discesa (backwardation) Inversa Evento atteso (earnings, FOMC) Gobba localizzata Spike Evento specifico a quella scadenza TLT: curva probabilmente piatta o leggermente inclinata—nessun evento.
+
+ORCL: picco sulla scadenza post-earnings, poi crollo—classico .
+
+MARA: potrebbe avere struttura irregolare—crypto-linked.
+
+4.  Skew (Asimmetria Put/Call) Lo skew misura la differenza di IV tra put OTM e call OTM .
+
+Skew Cosa indica Put \> Call Paura di ribasso (tipico indici) Call \> Put Euforia rialzista (tipico biotech prima news) Piatto Nessuna paura particolare TLT: skew probabilmente neutro o leggermente put—niente di che.
+
+MARA: potrebbe avere skew variabile—da monitorare.
+
+5.  Mean Reversion Speed (Avanzato) La velocità con cui IV torna alla media dopo un picco è diversa per ogni strumento .
+
+Strumento Half-life (giorni) Comportamento Indici \~70 Lento ritorno Single stock 10-30 Veloce Cripto 5-15 Istantaneo TLT: dopo il picco di aprile, IV è tornato giù in poche settimane—mean reversion rapida.
+
+MARA: rimbalza continuamente—mean reversion? Forse no, è il suo stato naturale.
+
+🧠 La Nuova Scheda di Valutazione per Ogni Strumento Ecco cosa dobbiamo aggiungere alla nostra matrice:
+
+text \### Scheda Volatilità per \[Strumento\]
+
+| Metrica              | Valore                    | Interpretazione        |
+|:---------------------|:--------------------------|:-----------------------|
+| IV attuale           | xx%                       | --                     |
+| IV Rank              | xx%                       | Posizione nel range    |
+| IV Percentile        | xx%                       | Frequenza storica      |
+| HV attuale           | xx%                       | Volatilità realizzata  |
+| Rapporto IV/HV       | x.x                       | Opzioni care/cheap?    |
+| Term Structure       | contango/backwardation    | Eventi in arrivo?      |
+| Skew                 | put/call bias             | Paura/direzione?       |
+| Mean Reversion Speed | lenta/media/veloce        | Quanto dura un picco?  |
+| Pattern storico      | piatto/onde/dente di sega | Natura dello strumento |
+
+✅ Applicazione ai Tuoi Tre Esempi Strumento TLT MARA ORCL IV%ile 13% (basso) 68% (alto) \~100% (altissimo) IV Rank \~13% \~68% \~100% IV/HV \~1.0 ? (prob \>1) \>1 (pre-earnings) Term Structure Piatta Irregolare Picco pre-earnings Skew Neutro ? Put \> Call? Mean Reversion Veloce Lenta/none Veloce post-earnings Pattern Piatto con spike rari Onde frequenti Dente di sega regolare Adatto per DD? ❌ NO ✅ SÌ ⚠️ Solo timing perfetto 📘 Per Il Tuo Manuale: La Nuova Pagina text \### Oltre il Percentile: Il Ritratto Completo della Volatilità
+
+Il percentile da solo non basta. Ogni strumento ha una personalità.
+
+| Tipo      | Esempio | Comportamento IV       | Strategia adatta |
+|:----------|:--------|:-----------------------|:-----------------|
+| Tartaruga | TLT     | Piatto, spike rari     | Income in range  |
+| Onda      | MARA    | Onde frequenti         | DD prima onde    |
+| Seghetto  | ORCL    | Dente di sega regolare | Timing perfetto  |
+| Dormiente | ?       | Anni di bassa          | Attesa           |
+
+**La domanda non è solo "IV è alta/bassa?" ma "che tipo di animale è questo strumento?"** Ora hai gli strumenti per classificare TLT, MARA e ORCL non solo per numero, ma per personalità. Questo è il livello successivo.
+
+Vuoi che applichiamo questa scheda a tutti i tuoi strumenti della watchlist?
+
+This is indeed very interesting and useful. But I have difficulties in understanding how I can calculate these values:
+
+1.  IV percentile: % of days with IV \< today. How do I get this value? I could calculate it IF I had the daily values of IV per instrument/day. Or I need just to guess it graphically
+2.  Ratio IV/HV. For TLT, as usual, we are in a turtle situation. Mara today is 1.2096/1.25806, so this implies that options are quite cheap?
+3.  Volatiltiy term structure. I don't know where to find it in TOS. Are you referring to the volatility smiles that I saw in TWS? I can indeed see whether chains are in contango or backwardation for instance collapsing the various expirations and readin the indicated "implied volatiltiy". What are this numbers, actualy? The average of the call+put ATM implied volatiltiies? Anyway, it is almost all contango, among the monthly (regular) options, beside a veru few tiny exceptions. You say that this is a "very powerful indicator": but would it help selecting instruments and trades? How?
+4.  For MARA, for instance, the ATM call and puts of Mar 20 are sold respectively for 1.50 vs. .48. This would mean that people expect to rise a lot.
+
+I understand that these numbers give the "personality" of instruments. But then we need to insert them anyhow in the 2x2 matrix high/low volatilty + high/low ATR (trendiness) For arriving to some guidance about te kind of trades to setup.
+
+....Or: should we apply them to make a pre-selection of the INSTRUMENTS that are interesting to trade now, rather? You see: a coiple of questions above and this final of the use of these deeper IV examination for our goal of trade selection, which should be as objective (numerical) as possible.
+
+These are the **right questions**. You're moving from "what is this indicator?" to "how do I use it systematically?" That's where the edge lives.
+
+Let me answer each point with practical, actionable steps using TOS.
+
+## 📊 1. IV Percentile: How to Get the Exact Number
+
+You're right—guessing from a chart is not systematic. TOS can give you the **exact IV percentile** with built-in tools:
+
+### Method A: Today's Options Statistics (Built-in, No Coding)
+
+1.  In TOS, go to the **Trade** tab for your symbol (e.g., TLT)
+
+2.  At the bottom of the screen, click the tab **"Today's Options Statistics"**
+
+3.  Look for **"IV Percentile"** — it's calculated automatically over 1 year
+
+This is the cleanest method. It gives you a precise number without any guesswork.
+
+### Method B: Custom Quote Script (If You Want It in a Watchlist)
+
+If you want IV percentile visible in your watchlist alongside price, you can install a free script:
+
+1.  Download **PM_IV_Rank_CQ** from GitHub
+
+2.  In TOS, right-click a watchlist column → Customize
+
+3.  Click the scroll icon next to a custom slot → thinkScript Editor
+
+4.  Paste the code, name it "IV%ile", click OK
+
+This script calculates IV Rank over 252 trading days and even colors the value based on where it falls .
+
+## 📈 2. IV/HV Ratio: What MARA's Numbers Tell You
+
+MARA: IV = 1.2096, HV = 1.25806 → **IV/HV = 0.96**
+
+This ratio **below 1.0** is actually quite informative :
+
+| Ratio | Meaning | Action |
+|:---|:---|:---|
+| **IV/HV \> 1.2** | Options expensive vs. recent movement | Favor selling (credit spreads, short strangles) |
+| **IV/HV 0.8–1.2** | Normal range | Neutral |
+| **IV/HV \< 0.8** | Options cheap vs. recent movement | Favor buying (long straddles, debit spreads) |
+
+**MARA at 0.96** is in the **neutral range**. Options are fairly priced relative to recent moves—not cheap, not expensive. This means your edge must come from **direction or timing**, not from volatility mispricing alone.
+
+## 📉 3. Term Structure: Where to Find It and How to Use It
+
+### Where to Find It in TOS
+
+You're correct—it's the **implied volatility across different expiration dates** . In TOS:
+
+1.  Go to the **Trade** tab for your symbol
+
+2.  Click on any option (call or put) to select it
+
+3.  Look at the **"Volatility" column** across different expiration months
+
+4.  Better yet: use the **"Volatility Smile"** under Analyze → Volatility View
+
+The numbers you see (e.g., Mar 20 IV = X, Jun 18 IV = Y) are the **ATM implied volatilities** for each expiration .
+
+### How to Use It for Trade Selection
+
+| Shape | Name | What It Means | Trade Implication |
+|:---|:---|:---|:---|
+| **Near-term IV \< Long-term IV** | Contango | Normal market, no immediate fear | Calendar spreads (sell near, buy far) work well |
+| **Near-term IV \> Long-term IV** | Backwardation | Fear/stress expected soon | Avoid short premium; consider long options or balanced DD |
+| **Spike at specific expiration** | Event bump | Market pricing an event (earnings, FOMC) | Trade that event specifically |
+
+**For MARA**: You noted the Mar 20 call IV is much higher than the put IV (1.50 vs 0.48). This is **skew**, not term structure—it tells you the market expects an upside move (typical before earnings). The term structure across expirations will show whether this is a local bump or a broader shift.
+
+## 🧮 4. Putting It All Together: The Enhanced Selection Matrix
+
+Your intuition is correct: these deeper IV metrics belong in the **pre-selection of instruments**, not just strategy selection. Here's the enhanced framework:
+
+### Step 1: Instrument Pre-Selection (What's Worth Trading NOW)
+
+| Metric | TLT | MARA | ORCL | Filter Rule |
+|:---|:---|:---|:---|:---|
+| **IV%ile** | 13% (low) | 68% (high) | \~100% (very high) | \<30% = cheap, \>70% = expensive |
+| **IV/HV** | \~1.0 | 0.96 | ? (likely \>1.2 pre-earnings) | \<0.9 = cheap, \>1.2 = expensive |
+| **Term Structure** | Flat contango | Event bump? | Event bump | Contango = normal, backwardation = stress |
+| **Skew** | Neutral | Call \> Put | Put \> Call? | Shows market's directional fear |
+
+### Step 2: Strategy Selection (What to Do With It)
+
+Once an instrument passes your pre-selection, the **2×2 matrix** (IV%ile + ADX) tells you the strategy family :
+
+|   | **IV%ile LOW (\<30%)** | **IV%ile HIGH (\>70%)** |
+|:---|:---|:---|
+| **ADX \< 25 (Range)** | **Buy calendars** (cheap long volatility, no trend) | **Sell strangles/IC** (expensive premium, range intact) |
+| **ADX ≥ 25 (Trend)** | **Buy directional diagonals** (cheap volatility with trend) | **AVOID** (whipsaw risk) |
+
+## 🎯 The Key Insight You're Driving At
+
+> *"Do we apply these deeper IV metrics to pre-select instruments, or to select strategies?"*
+
+**Both.** But in this order:
+
+1.  **Pre-select instruments** using IV%ile, IV/HV, and term structure to find those with an edge (cheap/expensive, event-driven, etc.)
+
+2.  **Then apply the 2×2 matrix** (IV%ile + ADX) to those pre-selected instruments to choose the specific strategy
+
+3.  **Finally, use term structure and skew** to fine-tune strike selection and expiration
+
+Example:
+
+-   **Pre-selection**: MARA has high IV%ile (68%) and earnings event → interesting for premium selling or event trading?
+
+-   **Matrix**: MARA ADX is likely \<25 (range before earnings) → high IV + range = sell strategies (IC, short strangle)
+
+-   **Term structure**: If near-term IV \> long-term, maybe use a calendar instead
+
+## 📘 For Your Manual
+
+text
+
+```         
+### Enhanced Instrument Pre-Selection Checklist  Before even looking at a strategy, filter instruments with:  | Metric | Target | Tool in TOS | |:---|:---|:---| | IV Percentile | <30% = cheap, >70% = expensive | Today's Options Statistics | | IV/HV Ratio | <0.9 = cheap, >1.2 = expensive | Manual calculation or custom script | | Term Structure | Contango = normal, Backwardation = stress | Volatility Smile / Compare expirations | | Skew | Shows directional fear | Compare OTM call vs put IV |  Only instruments that show a clear edge (cheap IV, expensive IV, or event pattern) proceed to strategy selection.
+```
+
+Does this give you the systematic framework you were looking for? The key is making it **objective and repeatable**—no guessing, just rules.
