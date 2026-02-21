@@ -1,0 +1,14 @@
+# R
+.Rhistory
+.RData
+.Rproj.user/
+.Ruserdata
+
+# Quarto
+*_cache/
+*.html
+*.pdf
+
+# OS
+.DS_Store
+Thumbs.db
