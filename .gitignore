@@ -15,3 +15,6 @@ Thumbs.db
 
 # Quarto freeze cache
 .quarto/_freeze/
+
+/.quarto/
+**/*.quarto_ipynb

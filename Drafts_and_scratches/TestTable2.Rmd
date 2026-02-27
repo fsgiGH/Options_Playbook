@@ -1,0 +1,75 @@
+---
+title: "TestTable"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+<https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html#CellText_Specification>\
+
+```{r}
+library(dplyr)
+library(kableExtra)
+
+tickers <- read.csv2("../data/tickers.csv", header = TRUE, sep = ",", dec = ".")
+
+selection <- read.csv2("../data/ticker_selection.csv", header = TRUE, sep = ",")
+
+tickers <- tickers |> filter(Ticker %in% selection$Ticker)
+
+tickers <- tickers |> 
+  mutate(range = IV.max - IV.min) |> 
+  mutate(avg = (IV.min + IV.max)/2)
+
+vix <- tickers |> 
+  filter(Ticker == "VIX")
+
+vix_range <- vix$IV.max - vix$IV.min
+vix_avg <- (vix$IV.min + vix$IV.max) / 2
+
+LALR <- tickers |> #Low average Low Range
+  filter(avg < vix_avg & range < vix_range) |> 
+  select(Ticker)
+
+LAHR <- tickers |> #Low average High Range
+  filter(avg < vix_avg & range > vix_range) |> 
+  select(Ticker)
+
+HALR <- tickers |> #High average Low Range
+  filter(avg > vix_avg & range < vix_range) |> 
+  select(Ticker)
+
+HAHR <- tickers |> #High average high range
+  filter(avg > vix_avg & range > vix_range) |> 
+  select(Ticker)
+
+#Expanding the shorter pairs of data
+#LALR and LAHR must have the same number of rows
+#HALR and HAHR must have the same number of rows
+mrow_low_average <- max(nrow(LALR), nrow(LAHR))
+mrow_high_average <- max(nrow(HALR), nrow(HAHR))
+
+if(nrow(LALR) < mrow_low_average) {
+  LALR <- LALR[rep(1, mrow_low_average), , drop = FALSE]
+}
+
+if(nrow(LAHR) < mrow_low_average) {
+  LAHR <- LAHR[rep(1, mrow_low_average), , drop = FALSE]
+}
+
+if(nrow(HALR) < mrow_high_average) {
+  HALR <- HALR[rep(1, mrow_high_average), , drop = FALSE]
+}
+
+if(nrow(HAHR) < mrow_high_average) {
+  HAHR <- HALR[rep(1, mrow_high_average), , drop = FALSE]
+}
+
+df <- data.frame(average = c("IV avg. < VIX", "IV avg. > VIX"),
+                  low = c (LALR, HALR),
+                  high = c (LAHR, HAHR))
+ 
+colnames(df) <- c("Measure", "Range < VIX", "Range > VIX")
+
+df |> mutate_all(linebreak) |> kbl(escape = F) 
+```

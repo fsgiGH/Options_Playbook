@@ -1,0 +1,69 @@
+\documentclass{LegrandOrangeBook}
+
+%------------------------------------------------
+% Metadata from Quarto / Pandoc
+%------------------------------------------------
+
+\title{$title$}
+\author{$for(author)$$author$$sep$ \\ $endfor$}
+\date{$date$}
+
+% Allow Quarto to inject additional header includes
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+\begin{document}
+
+%------------------------------------------------
+% Title page
+%------------------------------------------------
+
+$if(titlepage-background)$
+\titlepage{
+  \includegraphics[width=\paperwidth]{$titlepage-background$}
+}{
+  \centering
+  {\Huge\sffamily\bfseries $title$ \par}
+  \vspace{1em}
+  {\Large\sffamily $for(author)$$author$$sep$ \\ $endfor$ \par}
+}
+$else$
+\maketitle
+$endif$
+
+%------------------------------------------------
+% Table of contents
+%------------------------------------------------
+
+$if(toc)$
+{
+\hypersetup{linkcolor=black}
+\tableofcontents
+\newpage
+}
+$endif$
+
+%------------------------------------------------
+% Main content
+%------------------------------------------------
+
+$body$
+
+%------------------------------------------------
+% Bibliography
+%------------------------------------------------
+
+$if(bibliography)$
+\printbibliography
+$endif$
+
+%------------------------------------------------
+% Index
+%------------------------------------------------
+
+$if(index)$
+\printindex
+$endif$
+
+\end{document}

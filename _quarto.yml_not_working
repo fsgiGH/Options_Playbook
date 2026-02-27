@@ -16,19 +16,21 @@ book:
 bibliography: references.bib
 
 format:
+  pdf:
+    pdf-engine: lualatex
+    template: _templates/legrand-orange.tex
+    documentclass: LegrandOrangeBook
+    include-in-header: []
+    include-before-body: []
+    include-after-body: []
+    resources:
+      - _templates/LegrandOrangeBook.cls
+      - _templates/indexstyle.ist
+    papersize: a4
+    geometry: []
   html:
     theme:
       - cosmo
       - brand
-  pdf:
-    documentclass: scrreprt
-    papersize: "a4paper"
-    geometry: 
-       - top=25mm
-       - bottom=25mm
-       - left=20mm
-       - right=20mm
-    mainfont: "Segoe UI"
 
 editor: visual
-

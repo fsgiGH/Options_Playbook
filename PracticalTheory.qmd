@@ -1,4 +1,4 @@
-# Practical Theory
+# Practical Theory {#sec-theory}
 
 With this title I mean all the theoretical background which is directly useful for profitable trading, that is avoiding long digressions and demonstration.
 
@@ -76,7 +76,7 @@ They win often, but when they lose, lose *big*
 
 Balanced convexity means structuring your options exposure so that:
 
--   You don't bleed slowly like pure long‑volatility traders.
+-   You don't bleed slowly like pure long‑volatility traders.
 
 -   You don't blow up like short‑volatility traders.
 
@@ -125,7 +125,7 @@ With rang-bound, low volatility instruments (like perhaps TLT), balanced convexi
 📊 The general rule:
 
 | Kind of instrument | Suitable strategy | Why |
-|:--------------------|:----------------------------|:---------------------|
+|:-----------------------|:-----------------------|:-----------------------|
 | Range-bound, slow-moving (TLT) | Income strategies (short strangle, iron condor, credit spread) | Harvest theta, exploiting the lack of movement. |
 | Earnings, events, volatile (MARA, biotech) | Balanced convexity (double diagonal, straddle) | You buy protection for the incoming explosion |
 | Trending indexes | Directional (call/put diagonal) | Follow the trend, sell against |
@@ -153,7 +153,7 @@ Volatility is one of the most important dimensions to be considered when analyzi
 There have been a lot of teachings by DS about the IV measures. Here some values and how to look for them in ToS:
 
 | Measure | Formula | Sensitivity | Better for... |
-|:---------------:|:---------------:|:---------------:|:-------------------:|
+|:----------------:|:----------------:|:----------------:|:----------------:|
 | IV Rank | (current IV -- min IV) / (max IV -- min IV) | Extreme peaks | Identify absolute extremes |
 | IV Percentile | \% days with IV \< today | Distribution | Really understand whether today it is "high" or "low" |
 
@@ -164,7 +164,7 @@ How to find IV percentile? In ToS 🡪 Trade 🡪Today's option statistics. It i
 **Historical vs. Implied Volatility (IV/HV ratio)**
 
 | IV/HV Ratio | Meaning | Action |
-|:----------------:|:------------------:|:--------------------------------:|
+|:----------------------:|:----------------------:|:----------------------:|
 | IV \> HV | Options are more expensive relative to recent past | Prefer selling |
 | IV \< HV | Options are cheap | Prefer buying |
 | IV ≈ HV | "Normal" market | Neutral. Edge must come from direction or timing, not from volatility mispricing alone |

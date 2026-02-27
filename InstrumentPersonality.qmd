@@ -1,105 +1,279 @@
 # Instruments Personality
 
+## What changes, what remains
+
 After the theory, it is now time to get into practice. We have seen that the main idea behind this method is to adapt trading practices to the real nature of the market. And the first feature of the market that should be considered is the instruments themselves, with all their differences, despite the common nature of being financial assets.
 
-The main features of the instruments that are worth considering are their propension for directional moves or mean reversion, and their volatility.
+The main features of the instruments that are worth considering are their propensity for directional moves or mean reversion, and their volatility.
 
-Each instrument can vary such features along its lifespan, at a certain extent, but retains a particular "personality" which is constant along time according to the nature of the economic nature of the object that it prices. A financial instrument pricing state bonds will behave intrinsically in a different manner than private company ownership and again differently in the case of a commodity or an exchange rate. The economic forces governing these classes of assets are fundamentally different, though there might be interactions, surely complex, of one with the other.
+Each instrument can change such features along its lifespan, at a certain extent, but retains a particular "personality" which is constant along time according to the economic nature of the object that it prices. State bonds will behave intrinsically in a different manner than private company ownership shares and again differently if they are commodities or currency exchange rates. The economic forces governing these classes of assets are fundamentally different, though there might be interactions, surely complex, of one with the other.
 
-Between trendiness and volatility, apparently the former is more subject to general economic cycles or shocks, while preserving a general mean-reverting or persisten movement characteristic. Volatility, instead, seems to be something that, on a macro level, is more constant and more connected with the nature of the instrument itself.
+Between trendiness and volatility, apparently the former is more subject to economic cycles or shocks, while preserving a general mean-reverting or persistent movement characteristic. Volatility, instead, seems to be something that, on a macro level, is more constant and more connected with the nature of the instrument itself.
 
 This is where the consistent space that we have dedicated to understanding the many facets and measures of volatility comes into play.
 
-Because the task of this chapter is to operate a selection and a classification of the instruments that I want to trade, and how.
+Short-term, current features of regime (trending-ranging) and volatility must constitute the basis for the tactical choice of the instruments and strategies to trade, at any precise point in time, and will be the subject of the next chapter.
 
-Short-term, more timely and current features of regime (trending-ranging) and volatility must constitute the basis for the tactical choice of the instruments and strategies to trade, from time to time, and will be the subject of the next chapter.
-
-But the intelligent application of all our arsenal of volatility analysis allows us to make a first choice about instruments. Those deeper IV metrics belong in the **pre-selection of instruments**, not just strategy selection. Here's the enhanced framework.
+But the intelligent application of volatility analysis allows us to make a first choice about instruments. Those deeper IV metrics belong in the **pre-selection of instruments**, not just strategy selection. Here's the enhanced framework.
 
 **Step 1: the general behavior of instruments.**
 
-Though it was clear that the VIX, the index which measures the implied volatility of the assets belonging to the S&P500 index, cannot be applied 1:1 for filtering or judging instruments to trade, it surely traces a first big distinction:
+Though it is clear that the VIX, the index which measures the options implied volatility of the assets belonging to the S&P500 index, cannot be applied 1:1 for filtering or judging instruments to trade [@Bourquenoud2021], it surely traces first big distinctions:
 
-a.  There are instruments that constrantly show an IV level smaller than the VIX (low-volatiltiy instruments)
+a.  There are instruments that constantly show an IV level smaller than the VIX (low-volatility instruments)
 
 b.  There are instruments that consistently show IV values at or above the VIX level.
 
+c.  Some instruments have a volatility range (max - min) tighter than the VIX range
+
+d.  Some others have a broader range.
+
 Though the VIX itself is subject to significant variations, in a quite wide range, it may constitute sort of dynamic scale of measurement for determining the nature of other instruments, since it is exactly a representative sample of the whole market volatility.
 
-It is quite easy to spot instruments that most of the time represent the set of **low volatility:**
+@fig-volatility-range represents the situation as it was recorded on Feb 20, 2026. About 60 instruments were selected, together with the VIX.[^instrumentpersonality-1]
 
-```{r chart of volatility range, echo=FALSE, warning=FALSE, message=FALSE}
+[^instrumentpersonality-1]: The correct analysis would have been done by using the median values of the volatility, producing something similar to stacked boxplots. This would require the availability of daily IV readings for all the used instruments, that is not available, yet, until I have a tool for reading TWS API data. I then decided to use the average and the min-max range as a first indication.
+
+The choice of the instruments was a matter of discretion: I extensively used TWS search tools for isolating instruments with a decent options' Open Interest, selecting those with 52-weeks high or low volatility, exploring both the stocks and the ETF pools. Not to bias searches towards low volatility due to stability of major titles, I tiered the search according to different market capitalization classes. And finally, out of a very long list, I excluded:
+
+-   leveraged ETFs (I think it is against any differentiation principles using ETFs which replicate two or three times the same instrument)
+
+-   stocks of companies that I don't like for ethical reasons (e.g. producers of weapons)
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+#| label: fig-volatility-range
+#| fig-cap: "52-weeks range of VIX (orange, vertical lines) compared to implied volatility of about 60 among stocks and ETF titles"
+#| fig-height: 5
+
 library(dplyr)
 library(ggplot2)
 
-# ---------------------------------------------------------
-# 1. Data frame with your exact close prices
-# ---------------------------------------------------------
+tickers <- read.csv2("./data/tickers.csv", header = TRUE, sep = ",", dec = ".")
+selection <- read.csv2("./data/ticker_selection.csv", header = TRUE, sep = ",")
 
-df <- tribble(
-  ~Instrument, ~IV_low, ~IV_high, ~Notes, ~Close,
-  "VIX", 13.38, 60.13, "Vol Index", 19.19,
-  "FXE", 4.4, 15.2, "Currency ETF", 108.78,
-  "TLT", 8.9, 25.1, "Treasuries", 89.41,
-  "KO", 12, 28, "Consumer Staples", 79.80,
-  "PEP", 13, 31, "Consumer Staples", 164.94,
-  "WMT", 14, 33, "Retail", 123.00,
-  "PFE", 17, 38, "Pharma", 26.67,
-  "GLD", 13.8, 43.5, "Gold", 468.00,
-  "SPY", 11.0, 43.2, "S&P 500 ETF", 689.42,
-  "IWM", 16.6, 49.2, "Small Caps", 264.76,
-  "XLF", 12.8, 46.6, "Financials", 52.52,
-  "QQQ", 14.5, 48.4, "Nasdaq 100", 608.68,
-  "XLK", 16.8, 51.3, "Tech ETF", 141.23,
-  "AMD", 28, 65, "Semiconductors", 199.98,
-  "INTC", 25, 63, "Semiconductors", 44.06,
-  "F", 30, 70, "Auto", 14.00,
-  "MU", 32, 75, "Memory Chips", 427.58,
-  "USO", 24.5, 67.7, "Crude Oil ETF", 80.87,
-  "PLTR", 40, 95, "Software", 135.15,
-  "RIVN", 45, 105, "EV", 15.23,
-  "LCID", 50, 120, "EV", 9.59,
-  "UNG", 44.3, 102.1, "Natural Gas ETF", 12.00,
-  "VXX", 43.7, 169.5, "Vol ETN", 28.14
-)
+tickers <- tickers |> filter(Ticker %in% selection$Ticker)
 
-# ---------------------------------------------------------
-# 2. Sorting by IV_low (VIX always on top)
-# ---------------------------------------------------------
-
-sorted_levels_low <- df %>%
-  filter(Instrument != "VIX") %>%
-  arrange(IV_low) %>%
-  pull(Instrument)
+sorted_levels_low <- tickers  |> 
+  filter(Ticker != "VIX")  |> 
+  arrange(IV.min)  |> 
+  pull(Ticker)
 
 sorted_levels_low <- c("VIX", sorted_levels_low)
 
-df_sorted_low <- df %>%
-  mutate(Instrument = factor(Instrument, levels = sorted_levels_low))
+df_sorted_low <- tickers  |> 
+  mutate(Ticker = factor(Ticker, levels = sorted_levels_low)) |> 
+  select(c(Ticker, IV.min, IV.max))
 
-# ---------------------------------------------------------
-# 3. Main bar chart (no dots, reversed Y-axis)
-# ---------------------------------------------------------
+names(df_sorted_low) <- c("Ticker", "IV_min", "IV_max")
 
-p_main <- ggplot(df_sorted_low, aes(y = Instrument)) +
-  geom_segment(aes(x = IV_low, xend = IV_high, yend = Instrument),
-               linewidth = 3, color = "steelblue") +
+df_sorted_low <- df_sorted_low |> mutate(clr = 1)
+df_sorted_low$clr[1] <-2
+
+p_main <- ggplot(df_sorted_low, aes(y = Ticker)) +
+  geom_segment(aes(x = IV_min, xend = IV_max, yend = Ticker, colour = as.factor(clr)),
+               linewidth = 1) + 
+  scale_color_manual(values = c("steelblue", "darkorange")) +
   scale_y_discrete(limits = rev) +
   labs(
     title = "52-Week Implied Volatility Ranges (Sorted by IV Low)",
     x = "Implied Volatility (%)",
     y = ""
   ) +
-  theme_minimal(base_size = 12) 
+  geom_vline(xintercept = df_sorted_low$IV_min[1]) +
+  geom_vline(xintercept = df_sorted_low$IV_max[1]) +
+  theme_minimal(base_size = 7) +
+  theme (legend.position="none")
 p_main
 
 ```
 
-This chart represents the 52-week range of implied volatility of the VIX index (representative of a market average volatility) and the range of IV for assets belonging to different classes.
-
 We see interesting things:
 
--   Some instruments have volatiltiy ranges much tighter, and some much wider than the VIX (... than the average)
--   Some instruments have ranges of volatility consistently shifted to the left of the VIX volatilty, i.e. they have quite constantly lower volatility than the average of the market. FXE, TLT, KO, PEP, WM, PFE are among those. Meaningfully they represent either classes of assets different from stocks (TLT: bonds yields, FXE EURUSD exchange rate). Among the shares we find in this category consumer goods, GDO, large anti-cyclic conglomerated (big pharma like Pfizer).
--   On the opposite: some assets shows volatility consistenly higher than the market average (VIX): LCID, RIVN, PLTR. They are typically the assets of new technologies or risky businesses.
--   There are some assets which show a volatility range quite similar to VIX, i.e. in line with market volatility.
+1.  **Instruments with volatility on average lower than VIX and volatility range** **tighter than VIX'**
+
+    These are typically index ETFs, currency ETFs, ETFs tracking state bonds (TLT), or stocks of large companies with anti-cyclic, or cycle-independent industries, like large pharmaceutical companies (Johnson & Johnson, Pfizer), consumer goods (Coca-cola, Pepsico; Procter & Gamble), mass retailers (Walmart).
+
+2.  **Instruments with volatility on average lower than VIX but broader range**
+
+    Actually there are few, one being the HYG ETF, which traces the high yield (i.e. high risk) corporate bonds.
+
+3.  **Instruments with a volatility on average higher than the VIX but similar or tighter range**
+
+    Besides a couple of ETFs, this category contains the large-cap companies belonging to the Internet sector (like GOOG and AMZN), some other advanced pharmaceutical companies, fashion apparel companies like Nike, and some precious metal-depending titles like GDX.
+
+4.  **Instruments with volatility greater than VIX and (much) broader range**
+
+    This category includes most of the small-to-moderate market capitalization (dimension) companies belonging to high tech sectors, like biotechnology, bitcoin handling, and companies of all size active in advanced software applications (like ORCL), semiconductors (like INTEL or NVDA), and even some financials (like Bank of America). Surprisingly also Unilever belongs to this category.
+
+A particular mention here needs to be done for **outliers**: in @fig-volatility-range we see companies like CRML (Critical Metals Corp, involved in rare metals mining) or ETHA (the ETF tracking the Ethereum bitcoin), or OCUL (a biotech operating in the field of ophtalmology) with volatility ranges more than ten fold larger than the span of the VIX in the last year.
+
+The complete picture of this analysis, for the \~60 companies is represented in @tbl-4classesIV.
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+#| label: tbl-4classesIV
+#| tbl-cap: Classification in volatility classes of the instruments set.
+
+library(kableExtra)
+
+tickers <- read.csv2("./data/tickers.csv", header = TRUE, sep = ",", dec = ".")
+
+selection <- read.csv2("./data/ticker_selection.csv", header = TRUE, sep = ",")
+
+tickers <- tickers |> filter(Ticker %in% selection$Ticker)
+
+tickers <- tickers |> 
+  mutate(range = IV.max - IV.min) |> 
+  mutate(avg = (IV.min + IV.max)/2)
+
+vix <- tickers |> 
+  filter(Ticker == "VIX")
+
+vix_range <- vix$IV.max - vix$IV.min
+vix_avg <- (vix$IV.min + vix$IV.max) / 2
+
+LALR <- tickers |> #Low average Low Range
+  filter(avg < vix_avg & range < vix_range)
+
+LAHR <- tickers |> #Low average High Range
+  filter(avg < vix_avg & range > vix_range)
+
+HALR <- tickers |> #High average Low Range
+  filter(avg > vix_avg & range < vix_range)
+
+HAHR <- tickers |> #High average high range
+  filter(avg > vix_avg & range > vix_range)
+
+##Grouping output
+groups <- split(LALR$Ticker, 
+                ceiling(seq_along(LALR$Ticker) / 5))
+LALR <- sapply(groups, paste, collapse = " ")
+
+groups <- split(LAHR$Ticker, 
+                ceiling(seq_along(LAHR$Ticker) / 5))
+LAHR <- sapply(groups, paste, collapse = " ")
+
+groups <- split(HALR$Ticker, 
+                ceiling(seq_along(HALR$Ticker) / 5))
+HALR <- sapply(groups, paste, collapse = " ")
+
+groups <- split(HAHR$Ticker, 
+                ceiling(seq_along(HAHR$Ticker) / 5))
+HAHR <- sapply(groups, paste, collapse = " ")
+
+LALR <- paste(LALR, collapse = "\n")
+LAHR <- paste(LAHR, collapse = "\n")
+HALR <- paste(HALR, collapse = "\n")
+HAHR <- paste(HAHR, collapse = "\n")
+
+## non ancora a posto
+df <- data.frame(average = c("IV avg. < VIX", "IV avg. > VIX"),
+                  low = c (LALR, HALR),
+                  high = c (LAHR, HAHR))
+ 
+colnames(df) <- c("Measure", "Range < VIX", "Range > VIX")
+
+df |> mutate_all(linebreak) |> kbl(escape = F)
+```
+
+## What does this imply for our trading?
+
+In @sec-theory we saw that the main drivers of profits in option trading can be Theta (Θ) (time decay) or Gamma (Γ) plus Vega (V) (together connected with moves of the underlying price). And we have seen that there is inverse correlation between Θ and (Γ, V).
+
+In addition we may consider that, despite there is no 1:1 relationship between options implied volatility (IV) and realized, or historical volatility (HV) of instrument price moves, the two quantities are closely correlated.
+
+Thus, the classes of assets that we can classify according to average IV (high or low) and IV range (tight or wide), can tell us something about the common way of trading different assets.
+
+The final decision about which trade to be initiated in a single moment is matter of the *tactical review* that we will operate in the next chapter. But the personality of assets, as we are defining here, may help in selecting a class of assets rather than the other for possible scenarios. In other words, it may serve as a filter for avoiding to spend energy in searching opportunities every time in a huge universe of possibilities, rather focusing on a much smaller subset according to the current needs or wishes.
+
+**Low average IV, with tight IV** instruments are likely to have price curves moving slowly, often captured in ranges, probably inclined to mean-reversion. Trading those commodities is unlikely to produce good profits relying on Γ or V. They are most likely good candidates, then, for time decay (Θ)-based strategies, in which the efforts may be, eventually, to protect ourselves from large losses in case of unexpected, rare, but anyway possible shocks.
+
+Given their strange nature and scarce number, we can skip to consider the **low average/broad range** IV assets.
+
+**High average/broad IV range** instruments can be *vice-versa* the perfect candidates for (Γ, V)-based strategies, relying, for making profits, on large moves of the asset prices, in a relative short time. Θ, there, is the major risk driver, and it is better these things moving fast, because otherwise time decay digs deep into our pockets and we will lose money. Also in this case a *balanced* approach will help us protecting from too hard time decay. Among these instruments, perhaps, it will be possible to select some special events as the trigger for initiate trades with good perspectives of profits, like earnings announcements or decisions of central banks. Or we could simply profit of the times in which their volatility is temporarily low. Particular caution should be taken in choosing the *outliers* that we have indicated above (and other similar) due to the likely very erratic and unpredictable movement of their prices.
+
+Instruments with an **IV profile similar to VIX** (slightly higher average, range smaller but close to the VIX range) are somehow a good *trade-off* between the two situations, and can be usefully employed, based on the current tactical evaluation, for profiting at a time from Θ, at other times from (Γ, V) strategies. Given their usual nature of big-capital, big-sized companies or ETFs, their option volume is normally high guaranteeing liquidity and low spread. And their intermediate position in the IV spectrum makes it possible, likely, to find good opportunities in times in which, being IV in the middle of its usual range, it may be difficult to determine its future evolution (rising or falling) making the choice between time-decay (vega negative) and movement-driven (vega positive) strategies difficult.
+
+As said: the final choice of which strategy to adopt cannot be made just based on these general considerations and instrument personality, but having a subset of well-differentiated and characterized instrument can shorted the time of analysis and choice, fighting again analysis paralysis.
+
+**Other strategic considerations**
+
+When assessing trades, and instruments to be traded, reminding a bit of @sec-theory theory, we need always to consider, in addition to this personality, that:
+
+-   IV \> HV means that options are *overvalued*: selling is normally a better choice than buiyng.
+
+-   IV \< HV indicates a period of options *undervaluation*: buying in these periods may give an advantage (in selling options back when they come to their fair value again).
+
+-   Seeing backwardation of options, instead of the usual contango, (curve through expiration) may be a warning of some important events related to an instrument incoming. Better investigate and make an informed decision rather than jumping ona train without knowing the destination.
+
+-   Call/Put skew is a measure of market sentiment, indicating whether the crowd thinks the asset will rise (Call \> Put) or fall (Put \> Call).
+
+## My little universe
+
+All this considered, it is very useful at this point that every trader chooses a restricted (10-20) universe of instruments to consider for her/his own trading decisions. Option trading is more the application of sound and diversified methods to a small set of underlying instruments than the quest of the "best opportunity" among infinite possibilities (*stock picking*).
+
+Concentrating on few instruments allows one to become an *expert* of each of those, to follow the relevant news (and *just* the relevant, enormously increasing the signal/noise ratio). But, above all, it enables us to **fast decision** cycles, avoiding analysis paralysis, and allowing even the very busy people to trade, even those that perhaps can dedicate just an hour a day to this activity.
+
+Thus, after careful considerations, I have built up my small universe of possibilities. Any choice is always difficult, in the beginning, because one fears to miss something (and the FOMO syndrome has always been a real *trouble* for traders). But at the end I managed, and while presenting my list I will also remind to myself the *rationale* behind this choice.
+
+My little instrument universe is presented in @tbl-universe.
+
+This table is based on market data as recorded on Feb 20th, 2026. The general used criteria were:
+
+-   Select mostly (if not only) instruments with a good option volume. This is what is indicated in the third column on the table, for any of the portfolio components. Besides KO and VZ, which anyway have at least 60,000 contracts traded in the next expiration ATM chain, all the other underlyings have option contracts around in the range of millions. Liquidity for the option trader should be guaranteed. For KO and VZ, eventually, one should take care of the bid/ask spread when placing an order.
+
+-   Among different possibilities, considering my currently very low capital, I favored instruments trading at or below \$100 a share. Besides few cases, setting up a meaningful option position with instruments trading higher than that will imply an investment above the risk limits that will be presented in a following chapter. This is the reason of including (for reference) the market price at the date of creation of this table in column 2. A notable exception to this rule are the index ETF, for the reasons explained below.
+
+-   The table, in columns 4 and 5 shows the volatility classification presented in this chapter, indicating whether IV of the options belonging to each underlying has a Low/High average relative to the VIX and a tigth ot wide range in the last 52 weeks.
+
+-   The Type of the instruments (stock or ETF) shows the diversification of the selection.
+
+-   Name, sector and market capitalization of the instruments are shown in the last three columns.
+
+```{r, echo=FALSE, results="asis"}
+#| label: tbl-universe
+#| tbl-cap: "Little trading universe"
+
+df <- read.csv2("./data/portfolio_universe.csv", header = TRUE, sep = ",", dec = ".")
+df |> kbl(table.attr='quarto-disable-processing="true"', format = "latex") |> 
+  kable_styling(latex_options = "scale_down") |> 
+  kable_paper("striped")
+
+```
+
+Here then a more detailed analysis of the instruments:
+
+**SPY, QQQ and IWM** are the ETF following the S&P 500 index, the NASDAQ and the Russell 2000 (small caps), respectively. Despite the high unit price, ranging from \$264 to \$690 they are inserted in the universe for the very simple fact that, following them much closer than every other instrument outside the universe, they will give me the grasp on the general market and economic situation at every point in time. It will be quite unlikely finding good option trading opportunities with them until my capital remains limited, but it is good to somehow follow them also for the future.
+
+**EEM**: this is an ETF tracking the emerging markets economies. It is well positioned for being a candidate for time-decay strategies, given that it is low in volatility and its range, and being an ETF is not subject to regular event stress like earnings (though perhaps is more sensitive to other indexes to geopolitical crises). Also its price (\$62) is conductive to possible trading opportunities even for small investors.
+
+**TLT** is tracking long-term US State bonds, and offers, for this reason, a significant stability. In fact it ranks among the low volatility-tight range Θ-trade candidates also thanks to its quite affordable price of \<\$90.
+
+**GDX**, an ETF tracking the performance of gold miner companies offers a nice exposure to the precious metals markets, and thus to this kind of commodities. Its price is just above \$100, and perhaps it will be difficult to trade it now. But following precious metals and commodities in general is also informative. Its "high/tight" volatility profile makes it a possible candidate for both Θ and (Γ, V) strategies, depending of the precise time of analysis.
+
+**KO, VZ, and PFE** are among the other classical candidates in the time-decay subset. They are included because they are stocks instead of ETFs (first level of differentiation) and because they offer exposure to three different industries: Consumer goods, communications and pharmaceuticals.
+
+**BMY, F, PYPL, and NKE** are the "good for all times" candidates selected for the stock type. They offer exposure to quite differentiated industrial sectors like pharma, automotive, financial/internet services, and consumer/apparel/fashion. They are all very strong companies, with shares trading between \$14 and \$65 (options should be affordable also for small investors). Options are always traded in volumes not smaller than 0.35 and up to 1.29 millions, so quite liquid. Care should be taken , when starting trading on these instruments, to possible events like earnings and dividend distributions.
+
+The rest of the arsenal, **MRNA, RIOT, INTC, BAC, NOK, USO**, represent the group of high volatile instruments, with volatility ranging to quite low (but \> VIX) to very high during the past year. All of them, besides USO, are stocks. USO, traking oil (another commodity) is surprising, among EFTs, for its volatility (though not as extreme as ETHA). Moderna is the biotech superstar (after COVID), but still very engaged in research (mRNA vaccines and therapeutics) and therefore very subject to significant price changes. RIOT is in the bitcoin business. INTC and NOK, though for very different reasons, are a good representation of the Technology market, while Bank of America, sensitive to rates, regulation, and economic cycles, has large volatility average and range, and is a strong representative of the financial industry.
+
+Given this description it may appear that some care was taken in fostering *differentiation* within this little universe. This might have implications for risk management, though this is secondary and indirect, at this stage. The main aim in looking for this differentiation was to select a set showing the minimum possible *correlation* among instruments. In simple words, stuff that does not move all together in the same direction and with the same speed as a herd. When good trade opportunities are not present in a particular instrument I would like to be sure that I can find some other in another instrument, and this would be tricky if the two are too similar.
+
+Skipping the first three (which will be rarely traded), my universe is constituted by 16 instruments, which I feel is a good trade-off between the desire of having always at least the possibility of finding a good option trading opportunity and the need of keeping the pool small enough for being able to keep it under control and not waste too much time in analyzing it (*analysis paralysis*).
+
+Now that the degrees of freedom of my trading plan have been significantly reduced, it is time to go to the next step towards practical trading: the market pre-anaysis that constitutes the *tactical* vs. *strategic* decision process. This is the topic of the next chapter.
+
+:::{.callout-tip title = "Exercise 1"}
+Studying and repeating this analysis is a very nice way for familiarizing with the TWS broker interface. Spend some time looking at the screener features of the tool, researching on Internet, eventually, for help and documentation. Try to build lists of different classes of instruments and look in TWS how you can add to the screen columns reporting the 52-weeks min and max volatility. Get familiar on how to use as filters Option Open Interest, price, market capitalization.
+:::
+
+:::{.callout-tip title = "Exercise 2"}
+Export your TWS screening results in an Excel format (look how to do this) and then start playing around with more filtering and sorting. Ideally start from a list with 150-200 components and, based on your judgment, determine the objective criteria for reducing it down to 50-60 elements. Can you observe patterns? Can you order instruments according to Sectors? How is Volatility behaving?
+:::
+
+:::{.callout-tip title = "Exercise 3"}
+Based on your own preferences, your own capital, your own risk tolerance, the market situation when you are performing the analysis, try to create your own little universe of instruments for trading, your watchilist. Save it in a safe place, comment and document it for your future reference. Try to imagine which kind of trading you will perform with the different selected instruments
+:::
+
+:::{.callout-tip title = "Exercise 4"}
+Be prepared to repeat, about every 12 months, this analysis, for checking that the personality of your instruments, or other features of your little universe, like option chains availability, have not changed, and eventually for re-adjusting the set of preferred instruments, replacing some component with newcomers.
+:::

@@ -1,0 +1,124 @@
+Ticker,Type,Name,Industry,Sector,Last,OpenInt,IV min,IV max,IV current,Mkt cap
+VIX,Idx,CBOE Market Volatility Index,Benchmark,,19.09,,13.38,60.13,,
+MDT,Stock,MEDTRONIC PUBLIC LIMITED COMPANY,Healthcare Equipment & Supplies,Healthcare Products,97.02,10531,13.07,46.48,20.00%,124.381
+OCUL,Stock,"OCULAR THERAPEUTIX, INC.",Pharmaceuticals,Pharmaceuticals,7.64,10536,39.36,353.91,110.40%,1.663
+XLB,ETF,Sel Sector:Mat SS SPDR,ETF,Materials,52.85,11009,12.41,48.04,21.90%,6.12
+FXE,ETF,Invesco:Euro,ETF,Currency ETF,108.69,11400,2.73,18.12,6.00%,0.472
+BTDR,Stock,Bitdeer Technologies Group,Financial Technology (Fintech) & Infrastructure,Bitcoin mining,7.87,11473,57.58,273.61,109.90%,1.48
+FEZ,ETF,SS SPDR EU SX50,ETF,Large-cap Eurozone equities,69.44,11691,7.85,130.69,18.70%,5.37
+PL,Stock,PLANET LABS PBC,Aerospace & Defense,Satellite Design & Manufacture,23.81,11972,61.96,168.66,127.20%,8.121
+JETS,ETF,US Global Jets,ETF,Airlines & Aviation ETF,29.4,11995,22.81,97.34,34.70%,1.57
+PAGP,Stock,"PLAINS GP HOLDINGS, L.P",Oil & Gas Related Equipment and Services,Oil&Gas Transportation services,22.27,12229,10.18,88.41,18.70%,4.407
+NLY,Stock,"ANNALY CAPITAL MANAGEMENT, INC.",Residential & Commercial REIT,Mortgage REITs,23.09,12455,11.13,142.76,20.30%,16.588
+ENVX,Stock,Enovix Corporation,"Machinery, Equipment & Components",Battery Manufacturing,5.96,12642,34.7,201.06,115.40%,1.286
+TE,Stock,T1 ENERGY INC.,"Machinery, Equipment & Components",Electrical Components & Equipment,6.25,13165,67.4,271.25,122.20%,1.691
+IYR,ETF,iShares:US Rl Est ETF,ETF,Real Estate,100.4,13288,11.94,47.29,14.70%,4.08
+URA,ETF,Glbl X Uranium ETF,ETF,Uranium & nuclear energy,54.6,13369,31.06,68.74,55.50%,7.73
+UL,Stock,UNILEVER PLC,Personal & Household Products & Services,Personal Products,73.23,13478,14.09,61.55,18.00%,159.165
+CRML,Stock,Critical Metals Corp,Metals & Mining,Basic Materials (Metals&Mining),9.05,14269,73.69,649.41,118.80%,0.638
+COPX,ETF,Glbl X Copper Miners ETF,ETF,Copper miners,89.26,15160,22.2,77.79,49.80%,7.26
+SIL,ETF,Glbl X Silver Miners ETF,ETF,Silver miners,107.79,15678,30.4,81.65,60.00%,6.28
+TMC,Stock,TMC THE METALS COMPANY INC.,Metals & Mining,Specilaty mining & Metals,5.89,15768,64.81,259.3,116.40%,2.435
+XLI,ETF,Sel Sector:Ind SS SPDR,ETF,US Industrials,178,16999,11.64,53.8,18.30%,27.98
+LQDA,Stock,LIQUIDIA CORPORATION,Pharmaceuticals,Pharmaceuticals,33.7,19146,39.36,249.07,156.70%,2.932
+XLK,ETF,Sel Sector:Tech SPDR,ETF,U.S. Technology,140.88,19756,16.83,64.71,26.50%,91.64
+XRT,ETF,SS SPDR S&P Retail,ETF,U.S. Retail industry,88.82,20612,17.07,89.84,24.80%,0.523
+MO,Stock,"Altria Group, Inc.",Food & Tobacco,Tobacco Manufacturing,67.68,21420,12.83,40.65,19.70%,113.318
+INDA,ETF,iShares:MSCI India,ETF,Tracks the MSCI India Index,53.5,21655,10.42,26.74,15.50%,9.1
+ABT,Stock,ABBOTT LABORATORIES,Healthcare Equipment & Supplies,"Medical Equipment, Supplies & Distribution",112.21,21916,15.39,46.69,21.00%,195.119
+AGNC,Stock,AGNC INVESTMENT CORP.,Residential & Commercial REIT,Mortgage REIT (REIT),11.46,22046,12.22,57.64,21.30%,12.693
+STUB,Stock,"STUBHUB HOLDINGS, INC.",Software & IT Services,Online services,9.42,22564,70.52,164.48,130.10%,3.248
+AXTI,Stock,"AXT, INC.",Semiconductors & Semiconductor Equipment,Semiconductors,29.9,22728,63.31,605.82,146.50%,1.291
+IEF,ETF,iShares:7-10 Trs Bd,ETF,ICE U.S. Treasury 7–10 Year Bond Index,97.02,23222,4.06,15.44,4.70%,46.84
+PEP,Stock,"PEPSICO, INC.",Beverages,Beverages,165,23962,16.39,37.88,19.80%,225.497
+FIGR,Stock,"FIGURE TECHNOLOGY SOLUTIONS, INC.",Software & IT Services,IT Services & Consulting,29.13,24318,49.73,151.78,121.10%,6.284
+GRAL,Stock,"GRAIL, INC.",Biotechnology,Biotechnology & Medical Research,49.36,24864,43.46,467.55,224.00%,1.924
+AAOI,Stock,"APPLIED OPTOELECTRONICS, INC.",Electronic Equipment & Parts,Electronic components,51.63,25088,84.08,196.43,128.70%,3.208
+SEI,Stock,"SOLARIS ENERGY INFRASTRUCTURE, INC.",Oil & Gas Related Equipment and Services,Oil related services and equipment,49.86,26416,55.12,155.5,116.40%,3.413
+XLU,ETF,Sel Sector:Utl SS SPDR,ETF,U.S. Utilities — Large?cap regulated power & gas,46.36,27864,11.31,37.9,17.00%,22.2
+FROG,Stock,JFROG LTD,Software & IT Services,Software ,37.94,28734,22.06,165.74,120.10%,4.552
+UAMY,Stock,UNITED STATES ANTIMONY CORPORATION,Metals & Mining,Specialty mining & metals,7.38,29349,86.96,219.8,121.60%,1.033
+PG,Stock,THE PROCTER & GAMBLE COMPANY,Personal & Household Products & Services,Personal Products,160.71,29957,14.27,55.92,17.80%,373.49
+LUNR,Stock,"INTUITIVE MACHINES, INC.",Aerospace & Defense,Aerospace & Defense — Lunar Landing Systems,17.51,30599,43.14,321.29,120.10%,3.558
+ET,ETF,ENERGY TRANSFER UNT,ETF,Natural Gas Pipeline Transportation,18.95,31408,10.84,71.77,21.10%,65.188
+KVUE,Stock,KENVUE INC.,Personal & Household Products & Services,Personal Products,18.62,34346,17.57,97.78,22.30%,35.676
+HUT,Stock,HUT 8 CORP.,Financial Technology (Fintech) & Infrastructure,Bitcoin mining,53.79,36473,54.75,176.94,112.00%,5.923
+FRMI,Stock,FERMI INC.,Multiline Utilities,Multiline Utilities,9.19,37706,64.2,426.34,167.60%,5.643
+XOP,ETF,SS SPDR S&P Oil&Gas Exp,ETF,Energy — Upstream Oil & Gas (E&P),152.01,39207,21.46,77.89,34.70%,2.27
+LCID,Stock,"LUCID GROUP, INC.",Automobiles & Auto Parts,Electric Vehicles,9.58,40923,19.1,177.52,111.10%,3.106
+EWJ,ETF,iShares:MSCI Japan,ETF,tracks the MSCI Japan Index,91.7,46358,6.8,39.35,22.20%,16.69
+XLC,ETF,Sel Sctr:ComS SS SPDR,ETF,Communication Services (Large?Cap),117.12,50853,10.67,45.46,16.60%,27.96
+XLP,ETF,Sel Sector:C SSS SPDR I,ETF,Consumer Staples (Large?Cap),87.9,54759,10.06,32.42,16.70%,16.15
+ASHR,ETF,Xtrackers Hvst CSI300 CA,ETF,tracks the CSI 300 Index,34.01,55282,13.1,51.76,21.20%,1.8
+JNJ,Stock,JOHNSON & JOHNSON,Pharmaceuticals,Pharmaceuticals,242.7,57939,11.09,39.64,20.60%,584.882
+VZ,Stock,VERIZON COMMUNICATIONS INC.,Telecommunications Services,Telecommunications,49.16,60143,13.94,44.88,19.70%,207.341
+KO,Stock,THE COCA-COLA COMPANY,Beverages,Beverages,79.67,60636,12.46,35.64,17.00%,343.182
+CSCO,Stock,"CISCO SYSTEMS, INC.",Communications & Networking,Communications & Networking,79.23,61298,15.1,43.04,22.00%,310.304
+LQD,ETF,iShares:iBoxx $IG Corp,ETF,Fixed Income — U.S. Investment?Grade Corporate Bonds,111.56,62884,4.31,78.24,5.00%,28.51
+BKLN,ETF,Invesco Senior Loan,ETF,Fixed Income — Senior Secured Floating?Rate Loans,20.54,64765,2.78,100.33,11.30%,7.55
+EOSE,Stock,"EOS ENERGY ENTERPRISES, INC.","Machinery, Equipment & Components",Batteries,10.72,65778,37.88,164.33,118.50%,3.404
+XBI,ETF,SS SPDR S&P Biotech,ETF,Biotechnology — Equal?Weighted U.S. Biotech Exposure,124.72,65875,22.27,63.01,32.00%,8.34
+T,Stock,AT&T INC.,Telecommunications Services,Telecommunications,28.01,66527,16.15,50.23,22.00%,196.086
+ARKK,ETF,ARK Innovation,ETF,"Disruptive Innovation — High?Growth, High?Volatility Equities",71.6,90336,28.96,89.21,43.70%,6.68
+IBRX,Stock,"IMMUNITYBIO, INC.",Biotechnology & Medical Research,Biotechnology,8.7,94173,61.21,245.37,150.70%,8.567
+BE,Stock,BLOOM ENERGY CORPORATION,"Machinery, Equipment & Components",Electrical Equipment,147.95,103303,60.24,154.55,118.80%,41.507
+WULF,Stock,TERAWULF INC.,Financial Technology (Fintech) & Infrastructure,Bitcoing Mining,14.95,103440,16.13,237.09,109.10%,6.261
+ASTS,Stock,"AST SPACEMOBILE, INC.",Telecommunications Services,Satellite Communications,80.28,106194,56.85,187.22,109.40%,29.37
+IGV,ETF,iShares:Expand Tch-Sftwr,ETF,U.S. Technology — Software & Cloud,80.79,117619,16.78,69.67,34.90%,6.06
+XLF,ETF,Sel Sector:Fin SS SPDR I,ETF,"Large?Cap Banks, Insurance, Capital Markets",52.44,138682,12.18,49.97,17.50%,55.29
+EFA,ETF,iShares:MSCI EAFE,ETF,International Equities — Developed Markets ex?US & Canada,104.77,144747,9.1,36.89,14.70%,74.34
+CIFR,Stock,CIPHER MINING INC.,Financial Technology (Fintech) & Infrastructure,Bitcoin Mining,14.64,156778,60.47,268.43,108.90%,5.784
+FXI,ETF,iShares:China Large Cp,ETF,tracks the FTSE China 50 Index,38.75,166619,17.04,59.82,24.90%,6.63
+EWZ,ETF,iShares:MSCI Brazil,ETF,tracks the MSCI Brazil 25/50 Index,39.5,170472,17.53,54.87,30.30%,8.75
+EWY,ETF,iShares:MSCI S Korea,ETF,tracks the MSCI Korea 25/50 Index,143.15,178234,20.93,59.35,53.50%,12.2
+KWEB,ETF,KraneShs:CSI China Intrt,ETF,China Internet & E?Commerce — Large?Cap Tech Platforms,32.72,187299,13.3,75.24,31.70%,8.65
+SILJ,ETF,Amplify Jr Slvr Miners,ETF,"tracks the Nasdaq Junior Silver Miners Index,",36.33,198130,31.4,94.24,70.30%,5.13
+SMR,Stock,NUSCALE POWER CORPORATION,Electrical Utilities & IPPs,Energy - Nuclear,13.46,237768,72.94,144.59,114.10%,4.075
+EEM,ETF,iShares:MSCI Em Mkts,ETF,major EM regions,62.41,251565,9.67,44.6,21.30%,26.95
+GDX,ETF,VanEck:Gold Miners,ETF,Precious Metals — Senior Gold Miners,106.26,300005,28.62,61.59,49.30%,28.89
+XLE,ETF,Sel Sector:Enrgy SS SPDR,ETF,"U.S. Energy — Integrated Oil, E&P, Refining, Services",54.99,338667,16.43,55.59,28.00%,32.99
+BMY,Stock,BRISTOL-MYERS SQUIBB COMPANY,Pharmaceuticals,Pharmaceuticals,60.75,366000,16.48,60.49,24.70%,123.533
+MRK,Stock,"MERCK & CO., INC.",Pharmaceuticals,Pharmarceuticals,122.33,380000,20.66,59.03,25.60%,303.626
+CRWV,Stock,"COREWEAVE, INC.",Software & IT Services,Cloud Computing Services,87.9,397851,24.76,185.78,114.90%,45.87
+SLB,Stock,SLB N.V.,Oil & Gas Related Equipment and Services,Oil related services and Equipment,50.86,549000,25.71,78.37,36.20%,76.053
+HYG,ETF,iShares:iBoxx $HY Corp,ETF,High?Yield (“Junk”) Corporate Bonds — USD?Denominated,81.01,583992,1.64,54.13,3.30%,18.06
+TLT,ETF,iShares:20+ Trs Bd ETF,ETF,U.S. Treasury Bonds — Long?Duration (20+ Years),89.36,679331,8.49,30.1,9.90%,45.21
+MRNA,Stock,"MODERNA, INC.",Pharmaceuticals,Biotechnology,49.92,700000,49.45,111.97,74.70%,19.514
+RIOT,Stock,"Riot Platforms, Inc.",Financial Technology (Fintech) & Infrastructure,Bitcoin Mining,15.61,712000,64.73,119.62,92.10%,5.804
+WMT,Stock,WALMART INC.,Food & Drug Retailing,Food & Retail Distribution,122.84,1020000,14.62,49.32,24.80%,979.055
+F,Stock,FORD MOTOR COMPANY,Automobiles & Auto Parts,Automotive,14.01,1290000,22.53,68.25,27.80%,55.893
+MARA,Stock,"MARA HOLDINGS, INC.",Financial Technology (Fintech) & Infrastructure,Bitcoin mining,8,1740000,56.68,130.19,97.50%,3.022
+IWM,ETF,iShares:Russ 2000 ETF,ETF,U.S. Small?Cap Equities — Broad Market Exposure,264.47,1923789,16.27,55.97,23.10%,73.89
+PFE,Stock,PFIZER INC.,Pharmaceuticals,Pharmaceutical,26.62,2330000,16.04,54.9,22.70%,151.354
+AMD,Stock,"ADVANCED MICRO DEVICES, INC.",Semiconductors & Semiconductor Equipment,Semiconductors,199.9,2450000,36,91.12,55.10%,325.919
+PLTR,Stock,PALANTIR TECHNOLOGIES INC.,Software & IT Services,Software,134.55,3090000,33.05,116.15,51.80%,321.665
+AAPL,Stock,APPLE INC.,"Computers, Phones & Household Electronics",Computers,264.4,3750000,16.74,66.98,24.70%,3887.394
+AMZN,Stock,"AMAZON.COM, INC.",Diversified Retail,Electronic shopping,210.05,4340000,22.63,68.92,31.40%,2254.87
+INTC,Stock,INTEL CORPORATION,Semiconductors & Semiconductor Equipment,Semiconductors,44.01,4550000,36.86,95.14,57.00%,219.83
+GLD,ETF,SPDR Gold,ETF,Precious metals,470.49,4850000,13.29,50.66,32.00%,174.07
+QQQ,ETF,Invesco QQQ Trust 1,ETF,Nasdaq-100,608.75,7750000,14.28,51.3,21.20%,411.78
+NVDA,Stock,NVIDIA CORPORATION,Semiconductors & Semiconductor Equipment,Semiconductors,190,12400000,30.48,91.3,48.50%,4617
+SPY,ETF,State Street SPDR S&P500,ETF,S&P 500,689.59,12800000,10.52,46.27,15.40%,708.92
+GOOG,Stock,ALPHABET INC.,Software & IT Services,Internet,315.26,1310000,24.24,62.01,30.90%,3817.72
+BAC,Stock,BANK OF AMERICA CORPORATION,Banking Services,Banks,53,1750000,17.94,67.67,26.50%,382.261
+WBD,Stock,"WARNER BROS. DISCOVERY, INC.",Media & Publishing,Media,28.76,1430000,15.91,113.88,35.20%,71.346
+PYPL,Stock,"PAYPAL HOLDINGS, INC.",Professional & Commercial Services,Commercial Services,41.56,1480000,25.89,72.15,36.90%,38.263
+PANW,Stock,"PALO ALTO NETWORKS, INC.",Software & IT Services,Internet,149,439000,10.63,95.64,39.00%,121.584
+NFLX,Stock,"NETFLIX, INC.",Software & IT Services,Internet,78.58,3590000,23.99,72.9,39.40%,331.778
+NOK,Stock,Nokia Oyj,Communications & Networking,Telecommunications,7.72,601000,13.83,146.36,41.40%,43.639
+NKE,Stock,"NIKE, INC.",Textiles & Apparel,Apparel,65.35,889000,24.32,70.79,45.10%,96.743
+GME,Stock,Geratherm Medical AG,Healthcare Equipment & Supplies,Retail,23.41,950000,33.07,130.39,46.60%,10.488
+BABA,Stock,Alibaba Group Holding Limited,Software & IT Services,Internet,154.54,1440000,29.89,82.34,46.20%,369.118
+IBIT,ETF,iShares Bitcoin Trust,ETF,Bitcoin,38.48,5720000,28.36,102.07,48.60%,
+USO,ETF,United States Oil Fund,ETF,,80.9,507000,21.33,69.88,51.20%,
+AAL,Stock,AMERICAN AIRLINES GROUP INC.,Passenger Transportation Services,Airlines,13.56,1270000,34.64,93.86,52.80%,8.954
+SOFI,Stock,"SOFI TECHNOLOGIES, INC.",Banking Services,Diversified Financial Services,18.91,3570000,26.56,136.93,58.50%,24.115
+SNAP,Stock,SNAP INC.,Software & IT Services,Interner,5.13,1550000,37.32,130.81,58.70%,8.664
+NIO,Stock,Nordic Iron Ore AB,Metals & Mining,Automotive,5.07,2420000,40.57,111.98,63.50%,12.402
+HOOD,Stock,"ROBINHOOD MARKETS, INC.",Financial Technology (Fintech) & Infrastructure,Internet,75.95,1470000,37.94,148.09,64.10%,68.378
+OWL,Stock,BLUE OWL CAPITAL INC.,Investment Banking & Investment Services,Diversified Financial Services,10.85,759000,28.96,97.27,64.20%,16.922
+COIN,Stock,PT INDOKRIPTO KOIN SEMESTA TBK,Banking Services,Diversified Financial Services,171.09,822000,28.33,111.38,64.90%,45.181
+ETHA,ETF,iShares Ethereum Trust,ETF,Bitcoin,14.81,1160000,33.69,486.62,66.50%,
+SMCI,Stock,"SUPER MICRO COMPUTER, INC.","Computers, Phones & Household Electronics",Computers,32.28,1550000,40.6,166.51,68.60%,19.335
+ORCL,Stock,ORACLE CORPORATION,Software & IT Services,Software,147.62,1920000,43.18,124.23,77.00%,424.131
+MSTR,Stock,STRATEGY INC,Software & IT Services,Software,131,1940000,43.18,124.23,77.00%,41.71
