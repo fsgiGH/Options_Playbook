@@ -1,0 +1,169 @@
+# Tactical Market Analysis {#sec-tactical}
+
+Continuing with the psychology image that we introduced in @sec-personality , we saw that instruments have a personality, something quite constant and inherent to their particular nature. But, as we know from common experience, on top of each person's personality there are *moods*, and they are short-lived and mutable. In this chapter we will be involved with financial instruments' *moods*, their particular behavior at the current time point, in which we want to enter a trade. In other words we will develop the analysis process that we need to set in place every time that we want to operate in the market. A particular focus will be to develop a systematic and reproducible process, that will protect us from the risk of adding to the market mood our trader's with the effect of increasing the unpredictable nature of trading decisions. *Discretionary* trading would become something that cannot be meaningfully discussed and planned, in that case, due to the absolute complexity of undetermined variables.
+
+## Do markets have moods?
+
+The first obvious question that we should ask is whether markets have moods or rather behave in a logical and predictable way. This has consequences on our general trading attitude.
+
+In 2013 and 2014, a group of researchers of the Department of Physics and Mathematics of the universities of Oxford and the Imperial College London, respectively, published two companion papers on scientific Journals ([@fulcher2013highly] , [@fulcher2014highly]). They developed a rigorous method for classifying time-series and producing forecasts out of them. Their work was developed using a database of about 35,000 real-world and model-generated time series, as diverse as meteorologic data and medicine-related series (like ECG recordings). They also included, of course, financial data like exchange rates and stock prices. The thing surprising me when I read those papers was that, though financial data come from human-generated processes, while for instance meteorologic data, at least on the long run, seems to us very random and unpredictable (how will the weather be like now in two weeks?) markets were, in the 35,000 data series, among those ranking closer to theoretical (drifted or anyhow modified) random walks. This demonstrates their unpredictable, somehow chaotic nature.
+
+I spent more than ten years, trying to become a *directional* trader, in fighting against the theory, and demonstrate to myself, without success, that there could have been some subtle hint, missed by Fulcher and colleagues' algorithms, enabling me (and others) to reliably and consistently *predict* future market movements and profit from this *edge*.
+
+All in all the results of this quest, in my hands, are the following:
+
+1.  It is very possible that, on the very short-term, markets present some predictable behavior. This is what big financial institutions exploit in HFT (high-frequency trading): but this is not available to a common, busy retailer because it requires supercomputing power, servers physically located close to the exchanges, huge capitals.
+2.  As as variation of this theme, there are specific times of the day, especially around markets open and close times, in which price movement often present repeatable patterns. The fashioned and trendy school of the "Inner Circle Trader" (ICT) followers, creator of the "Smart Money Concepts" (SMC) has identified a couple, and made "Day Trading" a popular discipline among vocal retailers (YouTube is full of these things). In my experience these methods are marginally profitable and require a full-time dedication to the discipline and the activity. Indeed there may be periods in which the technique produces good streams of results. Then, without apparent reasons, those periods are followed by times of repeated losses and frustrating waste of time. And, for what concerns me, substituting a real-life appealing and rewarding job with 16 hours a day spent in front of a screen filled of charts and social media is not a choice.
+3.  When it comes to predict market movements on a medium to long time scale, which could be amenable to a less intensive trading activity and market exposure, the SMC completely fails. Accuracy of predictions is lower than 50% (normally badly lower), and in fact there is around almost no social trader showing consistent results in this application of the ITC teachings. Attempts become very convoluted in the complexity of analysis, which is often demonstrated in retrospective (back testing), but that in real-time becomes more a question of luck than science, with people advancing the most bizarre explanations for showing you what you have made wrong the time that you collected losses instead of gains (and will be used next time to justify as demonstration of skills the fortunate eventual profit). I have then spent years of intensive reading and more intensive coding (millions of software lines...) for exploring the field of statistically-sound and rigorous *algorithmic trading*. My conclusion is that, even though it might be possible to find some algorithm producing some profits for a little while (one, two years the maximum), the same algorithm will badly fail later on, eating out most of the profits generated so far. This despite the best and most rigorous techniques for avoiding overfitting and overoptimization of the algorithms. Surely institutions and full time professionals can somehow avoid falling in the non-profitability trap by continuous improvement of the algorithms and in the discovery of new ones, adapted to the current market conditions. But this then transforms the life of the day-trader, glued to financial charts the whole day, in the life of a never ceasing software developer, spending hours of coding knowing that the fruit of his/her effort (a wonderful, complex but performing code) will have a usable life span shorter than the time needed to develop and testing it. I was in this loop, becoming quite addicted, for several years.
+4.  The *quants* school adopts another path: using complex statistical analysis for rigorously identify the thin, but real, small *inefficiencies* of the market, i.e. the deviations from the full random walk hypothesis. There are some, and I participated to a couple of these small communities for a while. In my hands, unless you have available very consistent initial capital, the net edge over a simple buy-and-hold strategy are so tiny that an entire trading life will not be sufficient to grant a decent return, surely not justifying the huge study and application required for developing such methods.
+
+An indirect demonstration of all the above is that generally every one of the professional followers of the above mentioned retail approaches (2-4, HTF people become simply *market makers*) normally are better in marketing their ideas than applying them. They are overall present in all the social media and internet corners, selling their wisdom so dearly that undoubtedly make their living out of sales of services than trading profits.
+
+This is then my conclusion: rather than a logical, deterministic and rigorous thinker, the market has indeed *moods*, closer to those of a little kid than a responsible adult. It is very unpredictable, on the medium and long term (in every range longer than a few hours, probably). Fulcher and colleagues were right (as a scientist, I should have trusted in this!). Longer forecasts are possible but produce just marginal returns, often underperforming the old, simple, buy and hold strategy. This is my conclusion about *directional* trading, and I am happy to know that there will be many, among the few readers of this paragraph, who may try to convince me of the opposite. I will hear them eagerly, but I have *decided* that I don't want to spend more of my residual energies for following this path.
+
+Options (and other derivatives) were invented, more than a century ago, exactly for protecting investors from the risk of *unpredictable* market moves (initially in the agriculture environment, subject to the variable outcomes of harvest). They allow to build up structured trades that include from the beginning the possibility of random market moves. This is the only way that for me shows still some viable attraction.
+
+## Analyzing the mood
+
+If options are our tool for navigating market moods, then we need a systematic way to read those moods each day. The method must be simple enough to fit within our limited time, yet robust enough to guide our decisions. Here is the framework I've developed."
+
+::: {.calllout-tip: title="The Daily Routine"}
+*Each morning, I put on my trader's mood ring. It has four faces:*
+
+   1. **Portfolio care** — tending existing positions
+   2. **Market reading** — sensing today's mood
+   3. **Trade planning** — designing the next move
+   4. **Execution** — placing the order
+
+:::
+
+As option traders, we need to make very few predictions about future underlying moves, but develop a daily analytical routine, the most reproducible and robust the possible, for making sense of the current situation and adapt our position engineering to the outcomes.
+
+The method should be possibly easy to implement, and should not require too much time, for avoiding analysis paralysis: after all, in a single trading session (which in my hands of busy busy-ness man cannot last more than one, max two hours a day) we need to be able to perform all four of these activities:
+
+-   managing the existing trading portfolio
+-   analyzing the markets
+-   plan the next trading position
+-   execute the transaction following best practices.
+
+To be simple and applicable, the method should be *objective* and quite mechanical.
+
+Already while talking about personality, we have seen that the main features of any market-instrument are
+
+-   volatility and
+-   trending vs. ranging conditions
+
+Since we have spent already some time on volatility let's focus first on the second feature.
+
+## Trend vs. reversion to the mean (range)
+
+Is our instrument trending or ranging? This will have crucial implications for the kind of option strategy that we want to set up, as
+we will see shortly.
+
+If you have any experience with technical analysis, you will know that answering this question will be very easy if you look at the 
+left side of your charts. But if you are at the very right border this is the source of many doubts. Will the recent break of structure
+lead to a sustained trend, or is it just the beginning of a short-lived retracement? Will my next demand area be the place where price
+will start a reversal, or will it just act as the short-term little accumulation zone for a new impulse in the current direction? Will
+price react to the next liquidity area or simply ignore it? And currently, is moving towards the upper or the lower one? Will my next
+fair value gap or order block hold or will it simply be disrespected? If answering these questions for the next few hours or couple of
+days can present some chance of accuracy, being able to say where the price will be in a few weeks or a couple of months becomes more 
+and more uncertain. 
+
+Fortunately with option trading we are not interested in the exercise of very precise market timing (when/where to enter and in which
+direction, and when to exit). Our job is to grasp the general behavior of the market in this moment, with the peace of mind of 
+managing risk and achieve profitability thanks to the hedging properties of our derivatives and through possible adjustments of our
+positions. Anyway an assessment of current trend vs. existing range is important in guiding the choice of the correct strategy for the
+given market condition.
+
+We can then rely, probably, on simpler evaluations: those based on not complicated **trendlines** and robust **indicators**. First of all let's make this clear: in option trading we are looking at the *daily* time frame mainly. If we want to have some confirmation from
+other time frames we go up to the *weekly*, eventually, but we never look at shorter time frames.
+
+Trend lines and channels can give us a sufficient idea about current regime of the market. If we can easily inscribe the market, for the last two-three weeks in a simple pair of parallel horizontal lines, even with episodic (wicks?) violations, then for our purposes we can say we are in a **ranging** market. If we need, in the same period, to bend our parallel lines upwards or downwards for reaching the same aim, we can initially asses the market as **trending**. Let's note down which is the *ranage* that we can expect the price will be now in one month, based on the projection of these lines. And let's also take a lot of care to the **scale** of the y (price) axis of our charts. Most of the charting software around has an *auto-scale* function included. This is good for us to have a look at the details of the picture. But it may be very misleading in judging and comparing charts one with the other.
+
+Tracing lines on a chart is surely a very discretionary way of evaluating price movements. For this reason, and this will be the method
+used in this playbook, having a numerical value as the *last word* about our trending-ranging conditions will be optimal, for ensuring reproducibility and objectiveness of our final judgment. The use of an *indicator*, i.e. a simple mathematical transformation of market values, is not a bad idea for this purpose. There might be around more innovative (and complex) formulas for evaluating the tendency of an instrument towards trend vs. mean reversion at a particular time. I have not found, though, nothing robuster and better than the good old **ADX**, one of the components of Mr. Welles Wilder's Directional Movement system, published back in 1978 [@wilder1978new].
+This is just a choice, and everybody can eventually develop another one, as soon as this is objective and easy to follow:
+
+* When an instrument has an ADX(14) reading > 25 we will consider it in a **trending** state (even though ADX has a significant lag).
+* When an instrument has an ADX(14) reading < 25 we will consider it in a **ranging** state.
+
+This unless the graphical trend line-based evaluation does not tell us the *opposite*. ADX(14) becomes our measure of trendiness, with a binary outcome.
+
+## Volatility 
+
+How to objectively measure whether an instrument has currently a *high* or *low* volatility? 
+
+As better explained in @sec-vol_theory, one option would be to use the *volatility percentile* of @sec-theory (@tbl-volmetrics). This tells us whether current implied volatility of the instrument is low or high within the yearly range. There will be high probability that a low volatility reading goes back to a higher level, and a high volatility value goes back to a lower one, being Implied Volatility a measure typically showing mean reversion.
+
+This measure is a bit biased by the fact that more often than not, the average of the IV curve is strongly biased by short-lived volatility peaks. This means that low volatility percentile values may not be biased towards a comeback to the overall yearly average,
+but to some more local average, lower than the one calculated along the whole year. In this respect, probably, the **volatility rank** (@tbl-volmetrics), measuring the relative *amount of time* that the volatility was lower than the current, might be a better indicator to tell us the probability of the current value to increase or decrease in the next future. If our current rank is 5%, this means that 95% of the time (in the last year) volatility was higher than today. If the rank is 90%, it indicates that 90% of the time volatility was lower than the current day. While the percentile could indicate us the quantity of the possible change will be (*how much can it grow/decline?*) the volatility rank may indicate to us how likely it will be that IV will increase/decrease in the life span of our trade.
+
+Thus, the criteria that i will use to classify volatility will be:
+
+* IV rank $\leq$ 30: low volatility
+* IV rank $\geq$ 70: high volatility
+
+## Decision matrix
+
+After collecting these measures (and we will see it may take less than one minute) for our instruments, the beauty of the option trading method that we are developing is that it offers ways of chosing the most appropriate strategic setup for the different situations. We can build a 2x2 decision matrix as follows:
+
++----------------------+-------------------------------------------------------------+-----------------------------------------------+
+|                      | **LOW VOLATILITY**                                          | **HIGH VOLATILITY**                           |
+|                      |                                                             |                                               |
+|                      | (IV rank $\leq$ 30)                                         | (IV rank $\geq$ 70)                           |
++======================+=============================================================+===============================================+
+| **Trend weak/range** | **Quadrant A**                                              | **Quadrant B**                                |
+|                      |                                                             |                                               |
+| ADX(14)< 25          | * *Turtles*: Ideal for Θ-driven (time decay) trades         | Sell premium with controlled risk. For        |
+|                      | * *Kangoos*: Ideal for long convexity,(Γ, V)-driven         | low-volatility instruments (turtles), use     |
+|                      |   trades                                                    | defined-risk strucutres that cap losses       |
+|                      | * *Lions*: good in both cases based on further              | during rare spikes. For high-volatility       |
+|                      |   IV and trend considerations                               | instruments (kangoos), employ wider           |
+|                      |                                                             | structures that accommodate their natural     |
+|                      |                                                             | price swings while collecting time decay.     |
++----------------------+-------------------------------------------------------------+-----------------------------------------------+
+| **STRONG TREND**     | **Quadrant C**                                              | **Quadrant D**                                |
+|                      |                                                             |                                               |
+| ADX(14) $\geq$ 25    |    * *Turtles*: Ideal for directional strategies including  | Avoid new positions, manage existing          |
+|                      |    Θ component                                              |                                               |
+|                      |    * *Kangoos*: Ideal for directional convexity             |                                               |
++----------------------+-------------------------------------------------------------+-----------------------------------------------+
+
+: Initial opportunity classification matrix {#tbl-initialchoice}
+
+A couple of notes:
+
+* Quadrant A: Always check the economic calendar. Earnings, FOMC, and CPI reports override normal quadrant rules, because they can cause rapid increase of volatility
+* Quadrant B: when volatility is high but the price is ranging, the market is overpricing uncertainty. We want to be net sellers of that uncertainty, collecting premium as it decays, while respecting the instrument's natural volatility personality.
+* As said, *Lions* are those underlyings that can adapt to any situation. 
+
+This table may seem too complex or abstract at the moment. At the end of Part II, when we will have explored all the possible positions that we can build up in the market (spreads) according to the current market conditions and the personality of the instruments we will revisit this decision matrix, inserting in all the quadrants the appropriate concrete choices, and everything will become clearer.
+
+But it is important already at this stage to understand that, by classifying the current market conditions along the dimensions of trendiness (regime) and volatility is the correct approach for choosing the best strategy for entering the market, and should become a short daily exercise.
+
+Of course the table above does not cover *all* the possible market situations. In the unlikely, but not impossible cases in which none of the instruments of our little universe show an IV Rank < 30 or > 70, the table does not offer any orientation. There might be at that point two lines of action possible:
+
+1. The firs, conservative one, is to think that all the instruments of our universe are in a state of *undecided mood*, and that opportunities for us to trade are not the best. In this case we might decide that it is simply better to *avoid trading* and wait for
+better times. This choice will potentially save us from some losses, at the cost of eventually deprive us from possible good opportunities
+2. The second alternative, a bit more aggressive, is to decide, in such cases, to adopt some other, more sophisticated *filter* for selecting the next trade, like volatility skew, volatility term structure (see @sec-vol_theory), very convincing directional biases, or strong fundamental arguments (incoming earnings, FOMC, CPI, interest rates announcements). Surely, in such periods, trading decisions will require some *extra research* and time application, and could expose us to a higher probability of (small) losses, but on the other side offer some more opportunity of *extra-ordinary* (in magnitude or kind) profits.
+
+::: {.callout-tip title="Exercise 1"} 
+With this series of exercises we will practically setup the TWS platform for the practical and most efficient way of performing market analysis daily in a short time.
+
+This is the first exercise and consists in setting up an appropriate watchlist, in the Mosaic "preferred" tab, automatically reporting the essential data for all the instruments of the little universe, including ADX and Volatility measures.
+
+.... to be completed
+:::
+
+::: {.callout-tip title="Exercise 2"} 
+Setting up the chart tab including underlying barchart and volatility charts
+
+.... to be completed
+:::
+
+::: {.callout-tip title="Exercise 3"} 
+Setting up a chart overview/correlation matrix
+
+....to be completed
+
+:::

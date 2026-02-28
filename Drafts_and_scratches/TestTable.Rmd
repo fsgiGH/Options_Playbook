@@ -1,68 +1,34 @@
 ---
-title: "TestTable"
-output:
-  html_document: default
-  pdf_document: default
+title: "MRE with the 'list-table' extension"
+output: pdf_document
 ---
 
-<https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html#CellText_Specification>\
-
-```{r}
-library(dplyr)
-library(kableExtra)
-
-tickers <- read.csv2("../data/tickers.csv", header = TRUE, sep = ",", dec = ".")
-
-tickers <- tickers |> 
-  mutate(range = IV.max - IV.min) |> 
-  mutate(avg = (IV.min + IV.max)/2)
-
-vix <- tickers |> 
-  filter(Ticker == "VIX")
-
-vix_range <- vix$IV.max - vix$IV.min
-vix_avg <- (vix$IV.min + vix$IV.max) / 2
-
-LALR <- tickers |> #Low average Low Range
-  filter(avg < vix_avg & range < vix_range)
-
-LAHR <- tickers |> #Low average High Range
-  filter(avg < vix_avg & range > vix_range)
-
-HALR <- tickers |> #High average Low Range
-  filter(avg > vix_avg & range < vix_range)
-
-HAHR <- tickers |> #High average high range
-  filter(avg > vix_avg & range > vix_range)
-
-##Grouping output
-groups <- split(LALR$Ticker, 
-                ceiling(seq_along(LALR$Ticker) / 5))
-LALR <- sapply(groups, paste, collapse = " ")
-
-groups <- split(LAHR$Ticker, 
-                ceiling(seq_along(LAHR$Ticker) / 5))
-LAHR <- sapply(groups, paste, collapse = " ")
-
-groups <- split(HALR$Ticker, 
-                ceiling(seq_along(HALR$Ticker) / 5))
-HALR <- sapply(groups, paste, collapse = " ")
-
-groups <- split(HAHR$Ticker, 
-                ceiling(seq_along(HAHR$Ticker) / 5))
-HAHR <- sapply(groups, paste, collapse = " ")
-
-LALR <- paste(LALR, collapse = "\n")
-LAHR <- paste(LAHR, collapse = "\n")
-HALR <- paste(HALR, collapse = "\n")
-HAHR <- paste(HAHR, collapse = "\n")
-
-## non ancora a posto
-df <- data.frame(average = c("IV avg. < VIX", "IV avg. > VIX"),
-                  low = c (LALR, HALR),
-                  high = c (LAHR, HAHR))
- 
-colnames(df) <- c("Measure", "Range < VIX", "Range > VIX")
-
-df |> mutate_all(linebreak) |> kbl(escape = F) 
+```{=html}
+<table id="tbl-perf">
+  <caption>Training performance</caption>
+  <thead>
+    <tr>
+      <th>Algorithm</th>
+      <th>Accuracy</th>
+      <th>Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Random Forest</td>
+      <td>96.7%</td>
+      <td>0.12s</td>
+    </tr>
+    <tr>
+      <td>Logistic Regression</td>
+      <td>81.2%</td>
+      <td>0.08s</td>
+    </tr>
+    <tr>
+      <td>Linear Regression</td>
+      <td>74.8%</td>
+      <td>0.05s</td>
+    </tr>
+  </tbody>
+</table>
 ```

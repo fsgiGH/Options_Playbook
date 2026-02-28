@@ -1,0 +1,30 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{array}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage{booktabs}
+
+\geometry{margin=1in}
+
+\begin{document}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{3.5cm}%
+                  >{\raggedright\arraybackslash}p{6cm}%
+                  >{\raggedright\arraybackslash}p{6cm}}
+
+\toprule
+ & \textbf{IV LOW (≤ 40\%)} & \textbf{IV HIGH (≥ 60\%)} \\
+\midrule
+\textbf{TREND WEAK (ADX < 25)} &
+QUADRANT A: Ideal for Long Convexity Trades. ✓ Balanced Double Diagonal ✓ Calendar with Wings &
+QUADRANT B: Ideal for Short Premium (Defined Risk). ✓ Broken-Wing Butterfly ✓ Short Iron Condor \\
+\midrule
+\textbf{TREND STRONG (ADX ≥ 25)} &
+QUADRANT C: Ideal for Directional Convexity. ✓ Balanced Single Diagonal (in trend direction) ⚠️ Avoid Double Diagonal &
+QUADRANT D: Avoid new positions. Manage existing. ❌ High risk of whipsaw. \\
+\bottomrule
+
+\end{longtable}
+
+\end{document}

@@ -3,18 +3,15 @@
 .RData
 .Rproj.user/
 .Ruserdata
-
 # Quarto
 *_cache/
 *.html
 *.pdf
-
 # OS
 .DS_Store
 Thumbs.db
-
 # Quarto freeze cache
 .quarto/_freeze/
-
 /.quarto/
 **/*.quarto_ipynb
+nul

@@ -8,8 +8,14 @@ book:
   chapters:
     - index.qmd
     - intro.qmd
-    - PracticalTheory.qmd
-    - InstrumentPersonality.qmd
+    - part: "Foundations"
+      chapters:
+       - PracticalTheory.qmd
+       - InstrumentPersonality.qmd
+       - MarketAnalysis.qmd
+    - part: "Strategies"
+      chapters: 
+        - strategy_summary.qmd
     - summary.qmd
     - references.qmd
 
@@ -29,6 +35,4 @@ format:
        - left=20mm
        - right=20mm
     mainfont: "Segoe UI"
-
-editor: visual
 

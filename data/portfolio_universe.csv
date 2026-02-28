@@ -1,20 +1,20 @@
-Ticker,Last,Opt. Volume,IV avg.,IV range,Type,Name,Sector,Mkt cap.
-SPY,689.59,12.8M,Low,Tight,ETF,SS SPDR S&P 500 ETF,Indexes,708.920
-QQQ,608.75,7.75M,Low,Tight,ETF,Invesco QQQ Trust series 1,Indexes,411.780
-IWM,264.47,1.92M,Low,Tight,ETF,iShares Russell 2000 ETF,Indexes,73.890
-EEM,62.41,025M,Low,Tight,ETF,iShares MSCI Emerging Markets ETF,International,26.950
-TLT,89.36,0.68M,Low,Tight,ETF,iShares 20+ Year Treasury Bond ETF,Bonds,45.210
-GDX,106.26,0.30M,High,Tight,ETF,VanEck Gold Miners ETF,Precious,28.890
-KO,79.67,60.6K,Low,Tight,STOCK,The Coca?Cola Company,Consumer,343.182
-VZ,49.16,60.1K,Low,Tight,STOCK,Verizon Communications Inc.,Communications,207.341
-PFE,26.62,2.33M,Low,Tight,STOCK,Pfizer Inc.,Pharmaceuticals,151.354
-BMY,60.75,0.37M,High,Tight,STOCK,Bristol?Myers Squibb Company,Pharmaceuticals,123.533
-F,14.01,1.29M,High,Tight,STOCK,Ford Motor Company,Automotive,55.893
-PYPL,41.56,1.28M,High,Tight,STOCK,Paypal,Internet,38.263
-NKE,65.35,0.89M,High,Tight,STOCK,Nike,Apparel,96.743
-MRNA,49.92,0.70M,High,wide,STOCK,"Moderna, Inc",Biotech,19.514
-RIOT,15.61,0.71M,High,wide,STOCK,"Riot Platforms, Inc.",Bitcoin m.,5.804
-INTC,44.01,5.55M,High,wide,STOCK,Intel Corp.,Semiconductors,219.830
-BAC,53.00,1.75M,High,wide,STOCK,Bank of America,Financial,382.261
-NOK,7.72,0.60M,High,wide,STOCK,Nokia,Technology,43.639
-USO,80.90,0.50M,High,wide,ETF,United States Oil Fund,Commodities,1.040
+Ticker,Last,Opt. Volume, Species,Type,Name,Sector,Mkt cap.
+SPY,689.59,12.8M,Turtle,ETF,SS SPDR S&P 500 ETF,Indexes,708.920
+QQQ,608.75,7.75M,Turtle,ETF,Invesco QQQ Trust series 1,Indexes,411.780
+IWM,264.47,1.92M,Turtle,ETF,iShares Russell 2000 ETF,Indexes,73.890
+EEM,62.41,025M,Turtle,ETF,iShares MSCI Emerging Markets ETF,International,26.950
+TLT,89.36,0.68M,Turtle,ETF,iShares 20+ Year Treasury Bond ETF,Bonds,45.210
+GDX,106.26,0.30M,Lion,ETF,VanEck Gold Miners ETF,Precious,28.890
+KO,79.67,60.6K,Turtle,STOCK,The Coca?Cola Company,Consumer,343.182
+VZ,49.16,60.1K,Turtle,STOCK,Verizon Communications Inc.,Communications,207.341
+PFE,26.62,2.33M,Turtle,STOCK,Pfizer Inc.,Pharmaceuticals,151.354
+BMY,60.75,0.37M,Lion,STOCK,Bristol?Myers Squibb Company,Pharmaceuticals,123.533
+F,14.01,1.29M,Lion,STOCK,Ford Motor Company,Automotive,55.893
+PYPL,41.56,1.28M,Lion,STOCK,Paypal,Internet,38.263
+NKE,65.35,0.89M,Lion,STOCK,Nike,Apparel,96.743
+MRNA,49.92,0.70M,Kangoo,STOCK,"Moderna, Inc",Biotech,19.514
+RIOT,15.61,0.71M,Kangoo,STOCK,"Riot Platforms, Inc.",Bitcoin m.,5.804
+INTC,44.01,5.55M,Kangoo,STOCK,Intel Corp.,Semiconductors,219.830
+BAC,53.00,1.75M,Kangoo,STOCK,Bank of America,Financial,382.261
+NOK,7.72,0.60M,Kangoo,STOCK,Nokia,Technology,43.639
+USO,80.90,0.50M,Kangoo,ETF,United States Oil Fund,Commodities,1.040

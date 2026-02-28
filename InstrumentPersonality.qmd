@@ -1,4 +1,4 @@
-# Instruments Personality
+# Instruments Personality {#sec-personality}
 
 ## What changes, what remains
 
@@ -14,18 +14,15 @@ This is where the consistent space that we have dedicated to understanding the m
 
 Short-term, current features of regime (trending-ranging) and volatility must constitute the basis for the tactical choice of the instruments and strategies to trade, at any precise point in time, and will be the subject of the next chapter.
 
-But the intelligent application of volatility analysis allows us to make a first choice about instruments. Those deeper IV metrics belong in the **pre-selection of instruments**, not just strategy selection. Here's the enhanced framework.
+But the intelligent application of volatility analysis allows us to make a first choice about instruments. Those deeper IV metrics belong in the **pre-selection of instruments**, not just strategy selection. Here's the enhanced framework.
 
 **Step 1: the general behavior of instruments.**
 
 Though it is clear that the VIX, the index which measures the options implied volatility of the assets belonging to the S&P500 index, cannot be applied 1:1 for filtering or judging instruments to trade [@Bourquenoud2021], it surely traces first big distinctions:
 
 a.  There are instruments that constantly show an IV level smaller than the VIX (low-volatility instruments)
-
 b.  There are instruments that consistently show IV values at or above the VIX level.
-
 c.  Some instruments have a volatility range (max - min) tighter than the VIX range
-
 d.  Some others have a broader range.
 
 Though the VIX itself is subject to significant variations, in a quite wide range, it may constitute sort of dynamic scale of measurement for determining the nature of other instruments, since it is exactly a representative sample of the whole market volatility.
@@ -195,6 +192,13 @@ Instruments with an **IV profile similar to VIX** (slightly higher average, rang
 
 As said: the final choice of which strategy to adopt cannot be made just based on these general considerations and instrument personality, but having a subset of well-differentiated and characterized instrument can shorted the time of analysis and choice, fighting again analysis paralysis.
 
+**A funny shortcut**
+For fun, but also for creating a convenient shortcut that will allow us an easier understanding in the following of this book, we will define, from now on, a *species* for our instruments:
+
+* The instruments with low IV average and tight range as **turtles**. They move slowly, and, in case of peril, prefer to protect   themselves inside their shield instead of running away.
+* The instruments with high volatility and wide range as **kangoos**, which can reach significant speed just jumping around.
+* The instruments with an IV a bit higher, but a range similar to VIX as **lions**. When you see them at the zoo, they are normally sleeping, but you know how fast they can become (and dangerous) when they are hungry. Since these instruments are also generally very big and well-known companies, they are easy to be thought as the "kings of the forest".
+
 **Other strategic considerations**
 
 When assessing trades, and instruments to be traded, reminding a bit of @sec-theory theory, we need always to consider, in addition to this personality, that:
@@ -244,17 +248,17 @@ Here then a more detailed analysis of the instruments:
 
 **SPY, QQQ and IWM** are the ETF following the S&P 500 index, the NASDAQ and the Russell 2000 (small caps), respectively. Despite the high unit price, ranging from \$264 to \$690 they are inserted in the universe for the very simple fact that, following them much closer than every other instrument outside the universe, they will give me the grasp on the general market and economic situation at every point in time. It will be quite unlikely finding good option trading opportunities with them until my capital remains limited, but it is good to somehow follow them also for the future.
 
-**EEM**: this is an ETF tracking the emerging markets economies. It is well positioned for being a candidate for time-decay strategies, given that it is low in volatility and its range, and being an ETF is not subject to regular event stress like earnings (though perhaps is more sensitive to other indexes to geopolitical crises). Also its price (\$62) is conductive to possible trading opportunities even for small investors.
+**EEM**: this is an ETF tracking the emerging markets economies. It is well positioned for being a candidate for time-decay strategies, given that it is low in volatility and its range (a turtle), and being an ETF is not subject to regular event stress like earnings (though perhaps is more sensitive to other indexes to geopolitical crises). Also its price (\$62) is conductive to possible trading opportunities even for small investors.
 
-**TLT** is tracking long-term US State bonds, and offers, for this reason, a significant stability. In fact it ranks among the low volatility-tight range Θ-trade candidates also thanks to its quite affordable price of \<\$90.
+**TLT** is tracking long-term US State bonds, and offers, for this reason, a significant stability. In fact it ranks among the low volatility-tight range Θ-trade candidates also thanks to its quite affordable price of \<\$90. Let's say it is the prototype of the turtle.
 
-**GDX**, an ETF tracking the performance of gold miner companies offers a nice exposure to the precious metals markets, and thus to this kind of commodities. Its price is just above \$100, and perhaps it will be difficult to trade it now. But following precious metals and commodities in general is also informative. Its "high/tight" volatility profile makes it a possible candidate for both Θ and (Γ, V) strategies, depending of the precise time of analysis.
+**GDX**, an ETF tracking the performance of gold miner companies offers a nice exposure to the precious metals markets, and thus to this kind of commodities. Its price is just above \$100, and perhaps it will be difficult to trade it now. But following precious metals and commodities in general is also informative. Its lion profile makes it a possible candidate for both Θ and (Γ, V) strategies, depending of the precise time of analysis.
 
 **KO, VZ, and PFE** are among the other classical candidates in the time-decay subset. They are included because they are stocks instead of ETFs (first level of differentiation) and because they offer exposure to three different industries: Consumer goods, communications and pharmaceuticals.
 
-**BMY, F, PYPL, and NKE** are the "good for all times" candidates selected for the stock type. They offer exposure to quite differentiated industrial sectors like pharma, automotive, financial/internet services, and consumer/apparel/fashion. They are all very strong companies, with shares trading between \$14 and \$65 (options should be affordable also for small investors). Options are always traded in volumes not smaller than 0.35 and up to 1.29 millions, so quite liquid. Care should be taken , when starting trading on these instruments, to possible events like earnings and dividend distributions.
+**BMY, F, PYPL, and NKE** are the "good for all times" lion candidates selected for the stock type. They offer exposure to quite differentiated industrial sectors like pharma, automotive, financial/internet services, and consumer/apparel/fashion. They are all very strong companies, with shares trading between \$14 and \$65 (options should be affordable also for small investors). Options are always traded in volumes not smaller than 0.35 and up to 1.29 millions, so quite liquid. Care should be taken , when starting trading on these instruments, to possible events like earnings and dividend distributions.
 
-The rest of the arsenal, **MRNA, RIOT, INTC, BAC, NOK, USO**, represent the group of high volatile instruments, with volatility ranging to quite low (but \> VIX) to very high during the past year. All of them, besides USO, are stocks. USO, traking oil (another commodity) is surprising, among EFTs, for its volatility (though not as extreme as ETHA). Moderna is the biotech superstar (after COVID), but still very engaged in research (mRNA vaccines and therapeutics) and therefore very subject to significant price changes. RIOT is in the bitcoin business. INTC and NOK, though for very different reasons, are a good representation of the Technology market, while Bank of America, sensitive to rates, regulation, and economic cycles, has large volatility average and range, and is a strong representative of the financial industry.
+The rest of the arsenal, **MRNA, RIOT, INTC, BAC, NOK, USO**, represent the group of high volatile instruments, with volatility ranging to quite low (but \> VIX) to very high during the past year: our typical kangoos. All of them, besides USO, are stocks. USO, tracking oil (another commodity) is surprising, among EFTs, for its volatility (though not as extreme as ETHA). Moderna is the biotech superstar (after COVID), but still very engaged in research (mRNA vaccines and therapeutics) and therefore very subject to significant price changes. RIOT is in the bitcoin business. INTC and NOK, though for very different reasons, are a good representation of the Technology market, while Bank of America, sensitive to rates, regulation, and economic cycles, has large volatility average and range, and is a strong representative of the financial industry.
 
 Given this description it may appear that some care was taken in fostering *differentiation* within this little universe. This might have implications for risk management, though this is secondary and indirect, at this stage. The main aim in looking for this differentiation was to select a set showing the minimum possible *correlation* among instruments. In simple words, stuff that does not move all together in the same direction and with the same speed as a herd. When good trade opportunities are not present in a particular instrument I would like to be sure that I can find some other in another instrument, and this would be tricky if the two are too similar.
 
@@ -262,18 +266,18 @@ Skipping the first three (which will be rarely traded), my universe is constitut
 
 Now that the degrees of freedom of my trading plan have been significantly reduced, it is time to go to the next step towards practical trading: the market pre-anaysis that constitutes the *tactical* vs. *strategic* decision process. This is the topic of the next chapter.
 
-:::{.callout-tip title = "Exercise 1"}
-Studying and repeating this analysis is a very nice way for familiarizing with the TWS broker interface. Spend some time looking at the screener features of the tool, researching on Internet, eventually, for help and documentation. Try to build lists of different classes of instruments and look in TWS how you can add to the screen columns reporting the 52-weeks min and max volatility. Get familiar on how to use as filters Option Open Interest, price, market capitalization.
+::: {.callout-tip title="Exercise 1"} 
+Studying and repeating this analysis is a very nice way for familiarizing with the TWS broker interface. Spend some time looking at the screener features of the tool, researching on Internet, eventually, for help and documentation. Try to build lists of different classes of instruments and look in TWS how you can add to the screen columns reporting the 52-weeks min and max volatility. Get familiar on how to use as filters Option Open Interest, price, market capitalization. 
 :::
 
-:::{.callout-tip title = "Exercise 2"}
-Export your TWS screening results in an Excel format (look how to do this) and then start playing around with more filtering and sorting. Ideally start from a list with 150-200 components and, based on your judgment, determine the objective criteria for reducing it down to 50-60 elements. Can you observe patterns? Can you order instruments according to Sectors? How is Volatility behaving?
+::: {.callout-tip title="Exercise 2"} 
+Export your TWS screening results in an Excel format (look how to do this) and then start playing around with more filtering and sorting. Ideally start from a list with 150-200 components and, based on your judgment, determine the objective criteria for reducing it down to 50-60 elements. Can you observe patterns? Can you order instruments according to Sectors? How is Volatility behaving? 
 :::
 
-:::{.callout-tip title = "Exercise 3"}
-Based on your own preferences, your own capital, your own risk tolerance, the market situation when you are performing the analysis, try to create your own little universe of instruments for trading, your watchilist. Save it in a safe place, comment and document it for your future reference. Try to imagine which kind of trading you will perform with the different selected instruments
+::: {.callout-tip title="Exercise 3"} 
+Based on your own preferences, your own capital, your own risk tolerance, the market situation when you are performing the analysis, try to create your own little universe of instruments for trading, your watchilist. Save it in a safe place, comment and document it for your future reference. Try to imagine which kind of trading you will perform with the different selected instruments 
 :::
 
-:::{.callout-tip title = "Exercise 4"}
-Be prepared to repeat, about every 12 months, this analysis, for checking that the personality of your instruments, or other features of your little universe, like option chains availability, have not changed, and eventually for re-adjusting the set of preferred instruments, replacing some component with newcomers.
+::: {.callout-tip title="Exercise 4"} 
+Be prepared to repeat, about every 12 months, this analysis, for checking that the personality of your instruments, or other features of your little universe, like option chains availability, have not changed, and eventually for re-adjusting the set of preferred instruments, replacing some component with newcomers. 
 :::

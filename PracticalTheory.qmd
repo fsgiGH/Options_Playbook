@@ -70,7 +70,7 @@ These have:
 
 -   Unlimited or large downside
 
-They win often, but when they lose, lose *big*
+They win often, but when they lose, lose *big*
 
 3\. **Balanced convexity strategies**
 
@@ -78,7 +78,7 @@ Balanced convexity means structuring your options exposure so that:
 
 -   You don't bleed slowly like pure long‑volatility traders.
 
--   You don't blow up like short‑volatility traders.
+-   You don't blow up like short‑volatility traders.
 
 -   You maintain a controlled, limited downside.
 
@@ -96,11 +96,11 @@ The portfolio should be:
 
 -   Offer a decent CAGR, well above a standard benchmark like S&P buy and hold.
 
-In addition it should offer good differentiation
+In addition it should offer good differentiation
 
 -   Across instruments
 
--   Across strategies, so that it should be possible to pick the preferred strategy according to the mutable market states (trending vs. ranging, high volatilty vs. low volatility).
+-   Across strategies, so that it should be possible to pick the preferred strategy according to the mutable market states (trending vs. ranging, high volatilty vs. low volatility).
 
 Balanced convexity lets you:
 
@@ -122,7 +122,7 @@ The right thing to do in trading is to apply the correct strategy and view depen
 
 With rang-bound, low volatility instruments (like perhaps TLT), balanced convexity is a waste of money. It is like buying an insurance against earthquakes in a region without any seismic activity.
 
-📊 The general rule:
+**The general rule:**
 
 | Kind of instrument | Suitable strategy | Why |
 |:-----------------------|:-----------------------|:-----------------------|
@@ -146,20 +146,67 @@ There are other situations where the convexity is more appropriate (gamma and ve
 
 The success and the profitability of option trading will be granted by the systematic application of a well-planned, diligently implemented, and patiently followed trading plan where knowing in advance what we will do, keeps us safe against psychology and panic.
 
-## Volatility
+## Volatility {#sec-vol_theory}
 
 Volatility is one of the most important dimensions to be considered when analyzing the market and trade opportunities.
 
 There have been a lot of teachings by DS about the IV measures. Here some values and how to look for them in ToS:
 
+ 
 | Measure | Formula | Sensitivity | Better for... |
 |:----------------:|:----------------:|:----------------:|:----------------:|
 | IV Rank | (current IV -- min IV) / (max IV -- min IV) | Extreme peaks | Identify absolute extremes |
 | IV Percentile | \% days with IV \< today | Distribution | Really understand whether today it is "high" or "low" |
 
-: Volatility metrics {.striped .hover}
+: Volatility metrics {#tbl-volmetrics} 
+
+The difference between IV Rank and IV Percentile is quite important and merits to be deeply understood. If the range of IV in a given period of time (let's say one year, or 52 weeks) for an instrument is dominated let's say by a unique, short-lived, huge spike (and then volatility comes back pretty soon to a more *normal range*), *IV Percentile* is badly affected. The extreme value of the peak is diluted down (so to say) very slowly by the ensuing IV readings. In such cases, for a long time, the percentile can indicate current IV being "low" just because it is below an inaccurate (actually, very lagging) average value. *IV Rank*, by converse, is less sensitive to spikes, considering the number of (daily) occurrencies in which volatility was lower than the current.
+
+**Percentile** answers the question: *"Where are we in the possible range?"*. This matters for magnitude estimation. A rank of 30% means we're 30% from the bottom—room to move up
+
+**Rank** answers the question: *"How unusual is this IV level in terms of time?"* For mean reversion trades, this matters. If IV has been this low only 5% of the time, it's statistically likely to rise.
 
 How to find IV percentile? In ToS 🡪 Trade 🡪Today's option statistics. It is simply there, as well as max and min IV in the last year.
+
+**When Each Metric Shines**?
+
++---------------------------------------------+---------------------------+--------------------------------+-------------------+
+| Situation                                   | Percentile                | Rank                           | Better choice     |
++=============================================+===========================+================================+===================+
+| **Multiple spikes of similar magnitude**    | Good                      | Good                           | Either            |
++---------------------------------------------+---------------------------+--------------------------------+-------------------+
+| **One extreme spike dominates**             | Poor—always shows low     | Good—shows true position       | **Rank**          |
++---------------------------------------------+---------------------------+--------------------------------+-------------------+
+| **Gradual drift in volatility**             | Good-show magnitude       | Good-shows time distribution   | Both useful       |
++---------------------------------------------+---------------------------+--------------------------------+-------------------+
+| **Need mean reversion probability**         | Poor-no time dimension    | Good-%of time below current    | **Rank**          |
++---------------------------------------------+---------------------------+--------------------------------+-------------------+
+
+: IV Rank vs. IV Percentile: situations {.striped #tbl-IV_situations}
+
+For this reason the main indicator that we can look at, when deciding about our trades (see next @sec-tactical), will be **IV Rank**.
+
+But the combination of both measures can also be very useful:
+
++----------------------------------+-------------------------------+-----------------------------------+
+| Reading                          | Interpretation                | Trade implication                 |
++==================================+===============================+===================================+
+| **Rank low, Percentile low**     | Truly cheap                   | Strong buy signal for long vol    |
++----------------------------------+-------------------------------+-----------------------------------+
+| **Rank low, Percentile medium**  | Recent spike distorts history | Cautious - check term structure   |
++----------------------------------+-------------------------------+-----------------------------------+
+| **Rank high, Percentile high**   | Truly expensive               | Strong sell signal for short vol  |
++----------------------------------+-------------------------------+-----------------------------------+
+| **Rank high, Percentile medium** | Gradual rise, not spike       | Consider but verify with HV       |
++----------------------------------+-------------------------------+-----------------------------------+
+
+: Combined use of IV Rank and IV Percentile {.striped #tbl-IV_combined}
+
+In summary, I use IV Rank as my primary volatility gauge because it's less distorted by isolated spikes. However, I always check IV Percentile as well: if rank is moderate but percentile is extreme, it tells me something interesting about the volatility pattern.
+
+----------------------------------
+
+**Other important measures of volatility**
 
 **Historical vs. Implied Volatility (IV/HV ratio)**
 
